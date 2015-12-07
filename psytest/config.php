@@ -1,7 +1,7 @@
 <?php
-    $mysql_server_name="localhost:3306"; //æ•°æ®åº“æœåŠ¡å™¨åç§°
-    $mysql_username="root"; // è¿žæŽ¥æ•°æ®åº“ç”¨æˆ·å
-    $mysql_password="12345"; // è¿žæŽ¥æ•°æ®åº“å¯†ç 
-    $mysql_database="psytest"; // æ•°æ®åº“çš„åå­—
+    $mysql_server_name="localhost:3306"; //Êý¾Ý¿â·þÎñÆ÷Ãû³Æ
+    $mysql_username="root"; // Á¬½ÓÊý¾Ý¿âÓÃ»§Ãû
+    $mysql_password="123456"; // Á¬½ÓÊý¾Ý¿âÃÜÂë
+    $mysql_database="psytest"; // Êý¾Ý¿âµÄÃû×Ö
     $debug = 1;
 ?>
