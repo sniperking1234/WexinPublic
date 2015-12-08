@@ -81,13 +81,24 @@
  * }
  */
 // 通过userId查找
-function findUsersByName($userName)
+function findUsersByID($userName)
 {
     // 包含数据库操作文件
     include_once 'sqlQuery.php';
     // 生成sql语句
     $query = "select * from userinfo
      where UserID = $userName";
+    // 返回结果
+    return selectQuery($query);
+}
+// 通过userName查找
+function findUsersByName($userName)
+{
+    // 包含数据库操作文件
+    include_once 'sqlQuery.php';
+    // 生成sql语句
+    $query = "select * from userinfo
+    where UserName = '$userName'";
     // 返回结果
     return selectQuery($query);
 }
