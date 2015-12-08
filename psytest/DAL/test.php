@@ -50,7 +50,7 @@ InsertScore(5,90,100,"you die");
 //$result = FindScoreByScoreID(2);
 //$result = FindScoreByPaperID(4);
 
-$result = FindQuestionByQuestionNum(1);
+$result = FindScoreByPaperID(1);
 $count = count($result);
 echo "total find $count results <br>";
 //打印查询数据
