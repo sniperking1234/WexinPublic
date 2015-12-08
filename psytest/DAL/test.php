@@ -5,7 +5,7 @@ include_once 'scoreDal.php';
 /****************************************************
  * 
  * @chen
- * paperDal 测试
+ * paperDal 娴嬭瘯
  * 
  ****************************************************/
 
@@ -16,7 +16,7 @@ include_once 'scoreDal.php';
 $result = FindPaperByPaperType('hardeasy');
 $count = count($result);
 echo "total find $count results <br>";
-//打印查询数据
+//鎵撳嵃鏌ヨ鏁版嵁
 foreach ($result as $single)
 {
     foreach ($single as $unit)
@@ -33,7 +33,7 @@ foreach ($result as $single)
  /****************************************************
   *
   * @chen
-  * scoreDal 测试
+  * scoreDal 娴嬭瘯
   *
   ****************************************************/
 /*
@@ -53,7 +53,8 @@ InsertScore(5,90,100,"you die");
 $result = FindScoreByPaperID(1);
 $count = count($result);
 echo "total find $count results <br>";
-//打印查询数据
+//鎵撳嵃鏌ヨ鏁版嵁
+//
 foreach ($result as $single)
 {
     foreach ($single as $unit)
