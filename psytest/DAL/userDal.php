@@ -98,7 +98,7 @@ function findUsersByNamePwd($userName, $psw)
     include_once 'sqlQuery.php';
     // 生成sql语句
     $query = "select * from userinfo
-        where UserID = $userName and PWD = $psw";
+        where UserID = $userName and PWD = '$psw'";
     // 返回结果
     return selectQuery($query);
 }
@@ -106,12 +106,12 @@ function findUsersByNamePwd($userName, $psw)
 function InsertUser($userId, $userPwd, $account, $userName, $idNum, $authority)
 {
     include_once 'sqlQuery.php';
-    $query="insert into user_info (UserID,PWD,Account,UserName,IDNumber,Authority) 
-    values('$userId','$userPwd','$account','$userName','$idNum','$authority') ";
+    $query="insert into userinfo (UserID,PWD,Account,UserName,IDNumber,Authority) 
+    values($userId,'$userPwd','$account','$userName','$idNum',$authority) ";
     return commonQuery($query);
 }
 /* 通过UserID（主键）删除一条信息 */
-function DeletePaper($userID)
+function DeleteUser($userID)
 {
     include_once 'sqlQuery.php';
     $query = "delete from userinfo
@@ -134,7 +134,7 @@ function UpdateID($userID, $idNum, $authority)
     include_once 'sqlQuery.php';
     // $isPaperScore $paperID 是int类型，不需要加单引号
     $query = "update userinfo
-    set IDNumber = '$idNum',Authority = '$authority'
+    set IDNumber = '$idNum',Authority = $authority
     where UserID = $userID";
     return commonQuery($query);
 }

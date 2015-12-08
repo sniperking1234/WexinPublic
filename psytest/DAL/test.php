@@ -53,8 +53,7 @@ InsertScore(5,90,100,"you die");
 $result = FindScoreByPaperID(1);
 $count = count($result);
 echo "total find $count results <br>";
-//打印查询数据
-//
+
 foreach ($result as $single)
 {
     foreach ($single as $unit)
