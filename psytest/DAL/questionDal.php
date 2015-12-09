@@ -1,7 +1,7 @@
 <?php
 
 /*
- * @Sia Tien
+ * @Tien
  * 操作question表，其中包含以下方法
  * FindQuestionByQuestionID($questionID)   通过questionID（主键）找到相应问题
  * FindQuestionByQuestionNum($paperID,$questionNum)    通过问题编号questionNum找到相应问题
