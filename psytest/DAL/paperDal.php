@@ -1,7 +1,7 @@
 <?php
 
 /* 
- * @chen
+ * @hero chen
  * 操作paper表，其中包含以下方法
  * FindPaperByPaperID($paperID)   通过paperID（主键）找到相应试卷
  * FindPaperByPaperName($paperName)    通过试卷名称paperName找到相应试卷
