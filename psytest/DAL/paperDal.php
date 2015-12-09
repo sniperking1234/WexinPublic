@@ -6,7 +6,7 @@
  * FindPaperByPaperID($paperID)   通过paperID（主键）找到相应试卷
  * FindPaperByPaperName($paperName)    通过试卷名称paperName找到相应试卷
  * FindPaperLikePaperName($paperName)     通过试卷名称paperName进行模糊查找
- * FindPaperByPaperType($paperType)    通过试卷类型来查找该类型的所有试卷
+ * FindPaperByPaperType($paperType)     通过试卷类型来查找该类型的所有试卷
  * InsertPaper($paperName, $paperInfo, $paperType, $isPaperScore, $imagePath) 向paper表插入一条数据
  * DeletePaper($paperID) 通过paperID（主键）删除一条信息
  * UpdatePaper($paperID, $paperName, $paperInfo, $paperType, $isPaperScore, $imagePath) 通过paperID（主键）更新一条记录
