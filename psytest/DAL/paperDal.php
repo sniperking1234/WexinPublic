@@ -17,7 +17,7 @@
 function FindPaperByPaperID($paperID)
 {
     //包含数据库操作文件
-    include_once 'sqlQuery.php';
+    include_once 'sqlQuery.php'; 
     //生成sql语句
     $query = "select * from paper 
         where PaperID = $paperID";
