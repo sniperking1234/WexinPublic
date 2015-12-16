@@ -5,6 +5,7 @@
  * 操作question表，其中包含以下方法
  * FindQuestionByQuestionID($questionID)   通过questionID（主键）找到相应问题
  * FindQuestionByQuestionNum($paperID,$questionNum)    通过问题编号questionNum找到相应问题
+ * FindQuestionByPaperID($paperID)         通过试卷ID来找的该试卷的所有问题
  * FindQuestionByQuestionType($questionType)    通过问题类型来查找该类型的所有问题
  * InsertQuestion($paperID,$questionNum, $questionInfo, $questionType, $questionSelect, $questionScore) 向question表插入一条数据
  * DeleteQuestion($questionID) 通过questionID（主键）删除一条信息
@@ -30,6 +31,15 @@ function FindQuestionByQuestionNum($paperID,$questionNum)
     include_once 'sqlQuery.php';
     $query = "select * from question
     where PaperID = '$paperID and QuestionNum = $questionNum'";
+    return selectQuery($query);
+}
+
+/* 通过paperID找出该试卷的所有问题*/
+function FindQuestionByPaperID($paperID)
+{
+    include_once 'sqlQuery.php';
+    $query = "select * from question
+    where PaperID = $paperID";
     return selectQuery($query);
 }
 
