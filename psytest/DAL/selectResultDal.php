@@ -9,7 +9,9 @@
  * InsertSelectResult($userID,$paperID,$questionID,$selectInfo,$selectScore)   增加一个SelectResult
  * UpdateSelectResult($selectResultID,$userID,$paperID,$questionID,$selectInfo,$selectScore)  更新一个SelectResult
  * DeleteSelectResult($selectResultID)                       通过selectResultID删除一个SelectResult
+
  */
+
 
 function FindSelectResultBySelectResultID($selectResultID)
 {
