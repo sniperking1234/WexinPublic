@@ -9,7 +9,7 @@
  * InsertSelectResult($userID,$paperID,$questionID,$selectInfo,$selectScore)   增加一个SelectResult
  * UpdateSelectResult($selectResultID,$userID,$paperID,$questionID,$selectInfo,$selectScore)  更新一个SelectResult
  * DeleteSelectResult($selectResultID)                       通过selectResultID删除一个SelectResult
-
+ * UpdateSelectScoreByID($selectResultID, $selectScore)  通过selectResultID更新selectScore
  */
 
 
@@ -56,7 +56,7 @@ function FindSelectResultByQuestionID($questionID)
     return selectQuery($query);
 }
 
-function FindSelectResultByUserPaper($userID,$paperID)
+function FindSelectResultByUserPaper($userID, $paperID)
 {
     //包含数据库操作文件
     include_once 'sqlQuery.php';
@@ -89,6 +89,15 @@ function UpdateSelectResult($selectResultID,$userID,$paperID,$questionID,$select
     where SelectResultID = $selectResultID";
     //返回结果
     return commonQuery($query);
+}
+
+function UpdateSelectScoreByID($selectResultID, $selectScore)
+{
+    include_once 'sqlQuery.php';
+    $query = "update selectresult
+    set SelectScore = $selectScore
+    where SelectResultID = $selectResultID";
+    return CommonQuery($query);
 }
 
 function DeleteSelectResult($selectResultID)
