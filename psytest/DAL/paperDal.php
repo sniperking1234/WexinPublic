@@ -9,6 +9,7 @@
  * FindPaperByPaperType($paperType)     通过试卷类型来查找该类型的所有试卷
  * InsertPaper($paperName, $paperInfo, $paperType, $isPaperScore, $imagePath) 向paper表插入一条数据
  * DeletePaper($paperID) 通过paperID（主键）删除一条信息
+ * FindALLPaper()      返回所有试题
  * UpdatePaper($paperID, $paperName, $paperInfo, $paperType, $isPaperScore, $imagePath) 通过paperID（主键）更新一条记录
  */
 
@@ -80,5 +81,13 @@ function FindPaperByPaperType($paperType)
     include_once 'sqlQuery.php';
     $query = "select * from paper
     where PaperType = '$paperType'";
+    return selectQuery($query);
+}
+
+/*返回所有试题*/
+function FindALLPaper()
+{
+    include_once 'sqlQuery.php';
+    $query = "select * from paper";
     return selectQuery($query);
 }
