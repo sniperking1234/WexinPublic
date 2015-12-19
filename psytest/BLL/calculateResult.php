@@ -6,7 +6,7 @@
  *  CalculateScore  算得分用户的其中一套试题的得分并写入TestResult表中
  */
 
-/*把选择结果存入saveSelectResult*/
+/*把选择结果存入saveSelectResult*/ 
 function SaveSelectResult($userID, $paperID, $questionID, $selectInfo, $selectScore)
 {
     include_once '../DAL/selectResultDal.php';
