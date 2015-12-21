@@ -4,7 +4,7 @@
  * SelectQuery($query)，对选择语句的操作，返回查询结果数组（二维）
  * CommonQuery($query)，对增删改语句的操作，成功返回1，失败返回0
  */
-function SelectQuery($query)
+function SelectQuery($query) 
 {
     //包含配置文件
     include '../config.php';
