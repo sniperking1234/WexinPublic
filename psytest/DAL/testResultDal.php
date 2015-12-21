@@ -59,7 +59,7 @@ function UpdateTestResult($testResultID,$userID,$paperID,$testScore,$testInfo)
     //生成sql语句
     $query = "update testresult
     set UserID = $userID, PaperID = $paperID, 
-    TestScore =$testScore, SelcetScore ='$testInfo'
+    TestScore =$testScore, TestInfo ='$testInfo'
     where TestResultID = $testResultID";
     //返回结果
     return commonQuery($query);

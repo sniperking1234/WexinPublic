@@ -85,7 +85,7 @@ function UpdateSelectResult($selectResultID,$userID,$paperID,$questionID,$select
     //生成sql语句
     $query = "update selectresult
     set UserID = $userID, PaperID = $paperID, QuestionID = $questionID,
-    SelectInfo = '$selectInfo', SelcetScore = $selectScore
+    SelectInfo = '$selectInfo', SelectScore = $selectScore
     where SelectResultID = $selectResultID";
     //返回结果
     return commonQuery($query);

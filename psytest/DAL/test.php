@@ -1,6 +1,9 @@
 <?php
 include_once 'paperDal.php';
 include_once 'scoreDal.php';
+include_once 'selectResultDal.php';
+include_once 'testResultDal.php'; 
+
 
 /****************************************************
  * 
@@ -51,19 +54,4 @@ echo UpdateScore(80, 5,10,30,"you healthy");
 //$result = FindScoreByScoreID(2);
 //$result = FindScoreByPaperID(4);
 
-/* $result = FindScoreByPaperID(1);
-$count = count($result);
-echo "total find $count results <br>";
-
-foreach ($result as $single)
-{
-    foreach ($single as $unit)
-    {
-        echo $unit."   ";
-    }
-    echo "<br>"  ;
-} */
-
-//DeleteScore(1);
-//DeleteScoreByPaperID(5);
 
