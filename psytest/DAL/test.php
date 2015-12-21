@@ -43,14 +43,15 @@ InsertScore(5,50,60,"you bad");
 InsertScore(5,70,80,"you happy");
 InsertScore(5,90,100,"you die");
 */
-
+//echo InsertScore(5,10,30,"you healthy");
+echo UpdateScore(80, 5,10,30,"you healthy");
 //UpdateScore(2,4,30,50,"you changed");
 
 
 //$result = FindScoreByScoreID(2);
 //$result = FindScoreByPaperID(4);
 
-$result = FindScoreByPaperID(1);
+/* $result = FindScoreByPaperID(1);
 $count = count($result);
 echo "total find $count results <br>";
 
@@ -61,7 +62,7 @@ foreach ($result as $single)
         echo $unit."   ";
     }
     echo "<br>"  ;
-}
+} */
 
 //DeleteScore(1);
 //DeleteScoreByPaperID(5);
