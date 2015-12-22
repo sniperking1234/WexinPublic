@@ -9,6 +9,7 @@
  * FindQuestionByQuestionType($questionType)    通过问题类型来查找该类型的所有问题
  * InsertQuestion($paperID,$questionNum, $questionInfo, $questionType, $questionSelect, $questionScore) 向question表插入一条数据
  * DeleteQuestion($questionID) 通过questionID（主键）删除一条信息
+ * UpdateQuestionNum($questionID,$questionNum)      更新questionNum
  * UpdateQuestion($questionID, $questionNum, $questionInfo, $questionType ,$questionSelect, $questionScore) 通过questionID（主键）更新一条记录
  */
 
@@ -77,6 +78,15 @@ function  UpdateQuestion($paperID,$questionID, $questionNum, $questionInfo, $que
     $query = "update question
     set QuestionNum= $questionNum,QuestionInfo = '$questionInfo', QuestionType = $questionType,
     QuestionSelect = '$questionSelect',QuestionScore = '$questionScore'
-    where QuestionID = $questionID and PaperID = $paperID";
+    where QuestionID = $questionID";
+    return commonQuery($query);
+}
+
+function UpdateQuestionNum($questionID,$questionNum)
+{
+    include_once 'sqlQuery.php';
+    $query = "update question
+    set QuestionNum= $questionNum 
+    where QuestionID = $questionID";
     return commonQuery($query);
 }

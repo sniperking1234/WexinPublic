@@ -6,6 +6,7 @@
  * FindScoreByScoreID($scoreID)   通过ScoreID（主键）找到相应评分标准
  * FindScoreByPaperID($paperID)   过PaperID找到该试卷的所有评分标准
  * FindScoreInfoByPaperScore($paperID, $score)  通过paperID和score查看该score落在哪一个得分区间中，该函数的返回值为ScoreInfo
+ * FindScoreID($paperID, $LScore, $HScore)
  * InsertScore($paperID, $LScore, $HScore, $scoreInfo)  向score表插入一条数据
  * UpdateScore($scoreID, $paperID, $LScore, $HScore, $scoreInfo)   通过scoreID（主键）更新一条记录
  * DeleteScore($scoreID)   通过scoreID（主键）删除一条记录
@@ -79,4 +80,12 @@ function DeleteScoreByPaperID($paperID)
     $query="delete from score
         where PaperID = $paperID";
     return commonQuery($query);
+}
+
+function FindScoreID($paperID, $LScore, $HScore)
+{
+    include_once 'sqlQuery.php';
+    $query = "select * from score
+    where PaperID = $paperID and LScore = $LScore and HScore = $HScore";
+    return selectQuery($query);
 }

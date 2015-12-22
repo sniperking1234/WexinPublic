@@ -9,6 +9,7 @@
  * InsertSelectResult($userID,$paperID,$questionID,$selectInfo,$selectScore)   增加一个SelectResult
  * UpdateSelectResult($selectResultID,$userID,$paperID,$questionID,$selectInfo,$selectScore)  更新一个SelectResult
  * DeleteSelectResult($selectResultID)                       通过selectResultID删除一个SelectResult
+ * DeleteSelectResultByPaperID($paperID)            通过$paperID删除
  * UpdateSelectScoreByID($selectResultID, $selectScore)  通过selectResultID更新selectScore
  */
 
@@ -108,6 +109,14 @@ function DeleteSelectResult($selectResultID)
     $query = "delete from selectresult
     where SelectResultID = $selectResultID";
     //返回结果
+    return commonQuery($query);
+}
+
+function DeleteSelectResultByPaperID($paperID)
+{
+    include_once 'sqlQuery.php';
+    $query = "delete from selectresult
+    where PaperID = $paperID";
     return commonQuery($query);
 }
 ?>
