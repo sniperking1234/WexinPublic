@@ -58,6 +58,7 @@ function CalculTestScore($userID, $paperID)
 {
     include_once '../DAL/selectResultDal.php';
     include_once '../DAL/paperDal.php';
+    include_once '../DAL/testResultDal.php';
     $sumSocre = 0;
     $ScoreInfo = NULL;
     //在这里重新查询一边，因为之前把单项的得分写入了
