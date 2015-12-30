@@ -3,7 +3,7 @@
  * @Tien
  * 添加编辑试卷。包含以下方法
  * UpdatePaperInfo更新试卷信息,如果要修改试卷名，要判断是否重复
- *DeletePaperForce($paperName) //强制删除试卷（先将依赖于这个Paper的数据删除，然后再删除Paper）
+ * DeletePaperForce($paperName) //强制删除试卷（先将依赖于这个Paper的数据删除，然后再删除Paper）
  * DeletePaperNormal($paperName)直接删除试卷
  * AddNewPaper,添加新试卷,要判断试卷名是否重复，如果不重复进行添加
  * IsSamePaper($paperName)判断试卷名是否重复
@@ -131,6 +131,7 @@ function GetPaperID($paperName)
 //     $query = "select PaperID from paper
 //         where PaperName = '$paperName'";
 //     return selectQuery($query);
+    $paperID = 0;
     include_once '../DAL/paperDal.php';
     $result = FindPaperByPaperName($paperName);
     foreach ($result as $single)

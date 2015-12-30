@@ -19,6 +19,7 @@ function FindPaperQuestion($paperName)
 {
     include_once '../DAl/paperDal.php';
     include_once '../DAl/questionDal.php';
+    $paperID = 0;
     $paperInfo = FindPaperByPaperName($paperName);
     foreach ($paperInfo as $single)
     {

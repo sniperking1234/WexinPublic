@@ -2,7 +2,7 @@
 /*
  * @chen 
  *  计算结果，其中包含以下方法
- *  SaveSelectResult   把选择结果存入saveSelectResultCalculateScore
+ *  SaveSelectResult($userID, $paperID, $questionID, $selectInfo, $selectScore)   把选择结果存入saveSelectResultCalculateScore
  *  CalculateScore  算得分用户的其中一套试题的得分并写入TestResult表中
  */
 
@@ -59,6 +59,7 @@ function CalculTestScore($userID, $paperID)
     include_once '../DAL/selectResultDal.php';
     include_once '../DAL/paperDal.php';
     include_once '../DAL/testResultDal.php';
+    $isPaperScore = 0;
     $sumSocre = 0;
     $ScoreInfo = NULL;
     //在这里重新查询一边，因为之前把单项的得分写入了
