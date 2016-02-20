@@ -1,77 +1,77 @@
 <?php
 /*
  * @yang
- * ²Ù×÷testresult±í£¬ÆäÖÐ°üÀ¨ÒÔÏÂ·½·¨ 
- *function FindTestResultByTestResultID($testResultID)                           Í¨¹ýtestResultIDÕÒµ½ÏàÓ¦µÄTestResult
- *function FindTestResultByUserID($userID)                                       Í¨¹ýuserIDÕÒµ½ÏàÓ¦µÄTestResult
- *function FindTestResultByPaperID($paperID)                                     Í¨¹ýpaperIDÕÒµ½ÏàÓ¦µÄTestResult
- *function InsertTestResult($userID,$paperID,$testScore,$testInfo)               Ôö¼ÓÒ»¸öTestResult
- *function UpdateTestResult($testResultID,$userID,$paperID,$testScore,$testInfo) ¸üÐÂÒ»¸öTestResult
- *function DeleteTestResult($testResultID)                                       Í¨¹ýtestResultIDÉ¾³ýÏàÓ¦µÄTestResult
+ * æ“ä½œtestresultè¡¨ï¼Œå…¶ä¸­åŒ…æ‹¬ä»¥ä¸‹æ–¹æ³• 
+ *function FindTestResultByTestResultID($testResultID)                           é€šè¿‡testResultIDæ‰¾åˆ°ç›¸åº”çš„TestResult
+ *function FindTestResultByUserID($userID)                                       é€šè¿‡userIDæ‰¾åˆ°ç›¸åº”çš„TestResult
+ *function FindTestResultByPaperID($paperID)                                     é€šè¿‡paperIDæ‰¾åˆ°ç›¸åº”çš„TestResult
+ *function InsertTestResult($userID,$paperID,$testScore,$testInfo)               å¢žåŠ ä¸€ä¸ªTestResult
+ *function UpdateTestResult($testResultID,$userID,$paperID,$testScore,$testInfo) æ›´æ–°ä¸€ä¸ªTestResult
+ *function DeleteTestResult($testResultID)                                       é€šè¿‡testResultIDåˆ é™¤ç›¸åº”çš„TestResult
 */
 function FindTestResultByTestResultID($testResultID)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from testresult
     where TestResultID = $testResultID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return selectQuery($query);
 }
 
 function FindTestResultByUserID($userID)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from testresult
     where UserID = $userID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return selectQuery($query);
 }
 
 function FindTestResultByPaperID($paperID)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from testresult
     where PaperID = $paperID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return selectQuery($query);
 }
 
 function InsertTestResult($userID,$paperID,$testScore,$testInfo)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "insert into testresult (UserID,PaperID,TestScore,TestInfo)
     values($userID,$paperID,$testScore,'$testInfo') ";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return commonQuery($query);
 }
 function UpdateTestResult($testResultID,$userID,$paperID,$testScore,$testInfo)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "update testresult
     set UserID = $userID, PaperID = $paperID, 
     TestScore =$testScore, TestInfo ='$testInfo'
     where TestResultID = $testResultID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return commonQuery($query);
 }
 
 function DeleteTestResult($testResultID)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "delete from testresult
     where TestResultID = $testResultID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return commonQuery($query);
 }

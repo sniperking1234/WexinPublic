@@ -1,12 +1,12 @@
 <?php
 /*
  * @chen
- * Éú³ÉÊÔ¾í¹¦ÄÜ£¬ÆäÖÐ°üº¬ÒÔÏÂ·½·¨
- * FindPaperInfo($paperName)  Í¨¹ýpaperNameÕÒµ½²¢·µ»ØÊÔ¾íÐÅÏ¢½éÉÜ
- * FindPaperQuestion  Í¨¹ýpaperNameÕÒµ½²¢·µ»ØÊÔÌâÐÅÏ¢
+ * ç”Ÿæˆè¯•å·åŠŸèƒ½ï¼Œå…¶ä¸­åŒ…å«ä»¥ä¸‹æ–¹æ³•
+ * FindPaperInfo($paperName)  é€šè¿‡paperNameæ‰¾åˆ°å¹¶è¿”å›žè¯•å·ä¿¡æ¯ä»‹ç»
+ * FindPaperQuestion  é€šè¿‡paperNameæ‰¾åˆ°å¹¶è¿”å›žè¯•é¢˜ä¿¡æ¯
  */
 
-/*Í¨¹ýpaperNameÕÒµ½²¢·µ»ØÊÔ¾íÐÅÏ¢½éÉÜ*/
+/*é€šè¿‡paperNameæ‰¾åˆ°å¹¶è¿”å›žè¯•å·ä¿¡æ¯ä»‹ç»*/
 function FindPaperInfo($paperName)
 {
     include_once '../DAl/paperDal.php';
@@ -14,7 +14,7 @@ function FindPaperInfo($paperName)
     return $paperInfo;
 }
 
-/*Í¨¹ýpaperNameÕÒµ½²¢·µ»ØÊÔÌâÐÅÏ¢*/
+/*é€šè¿‡paperNameæ‰¾åˆ°å¹¶è¿”å›žè¯•é¢˜ä¿¡æ¯*/
 function FindPaperQuestion($paperName)
 {
     include_once '../DAl/paperDal.php';

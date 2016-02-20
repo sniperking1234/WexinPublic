@@ -1,12 +1,12 @@
 <?php
 /*
  * @chen 
- *  ¼ÆËã½á¹û£¬ÆäÖÐ°üº¬ÒÔÏÂ·½·¨
- *  SaveSelectResult($userID, $paperID, $questionID, $selectInfo, $selectScore)   °ÑÑ¡Ôñ½á¹û´æÈësaveSelectResultCalculateScore
- *  CalculateScore  ËãµÃ·ÖÓÃ»§µÄÆäÖÐÒ»Ì×ÊÔÌâµÄµÃ·Ö²¢Ð´ÈëTestResult±íÖÐ
+ *  è®¡ç®—ç»“æžœï¼Œå…¶ä¸­åŒ…å«ä»¥ä¸‹æ–¹æ³•
+ *  SaveSelectResult($userID, $paperID, $questionID, $selectInfo, $selectScore)   æŠŠé€‰æ‹©ç»“æžœå­˜å…¥saveSelectResultCalculateScore
+ *  CalculateScore  ç®—å¾—åˆ†ç”¨æˆ·çš„å…¶ä¸­ä¸€å¥—è¯•é¢˜çš„å¾—åˆ†å¹¶å†™å…¥TestResultè¡¨ä¸­
  */
 
-/*°ÑÑ¡Ôñ½á¹û´æÈësaveSelectResult*/ 
+/*æŠŠé€‰æ‹©ç»“æžœå­˜å…¥saveSelectResult*/ 
 function SaveSelectResult($userID, $paperID, $questionID, $selectInfo, $selectScore)
 {
     include_once '../DAL/selectResultDal.php';
@@ -15,7 +15,7 @@ function SaveSelectResult($userID, $paperID, $questionID, $selectInfo, $selectSc
     return 0;
 }
 
-/*¼ÆËãµÃ·ÖÓÃ»§µÄÆäÖÐÒ»Ì×ÊÔÌâµÄµÃ·Ö²¢Ð´ÈëTestResult±íºÍSelectResultÖÐ*/
+/*è®¡ç®—å¾—åˆ†ç”¨æˆ·çš„å…¶ä¸­ä¸€å¥—è¯•é¢˜çš„å¾—åˆ†å¹¶å†™å…¥TestResultè¡¨å’ŒSelectResultä¸­*/
 function CalculateScore($userID, $paperID)
 {
     include_once '../DAL/selectResultDal.php';
@@ -26,21 +26,21 @@ function CalculateScore($userID, $paperID)
     return 1;
 }
 
-/*¼ÆËãµ¥ÏîµÃ·Ö*/
+/*è®¡ç®—å•é¡¹å¾—åˆ†*/
 function CalculSingleScore($userSelection)
 {
     include_once '../DAL/selectResultDal.php';
     foreach ($userSelection as $single)
     {
-        $resultID = $single[0];//ÕÒµ½Ö÷¼ü
+        $resultID = $single[0];//æ‰¾åˆ°ä¸»é”®
         $questionID = $single[3];
         $selectInfo = $single[4];
         $questionResult = FindQuestionByQuestionID($questionID);
-        //ÕÒµ½¸ÃÌâµÄµÃ·ÖÉèÖÃ
+        //æ‰¾åˆ°è¯¥é¢˜çš„å¾—åˆ†è®¾ç½®
         $questionScore = $questionResult[0][6];
-        //ÒÔ·ÖºÅ½øÐÐ²ð·Ö
+        //ä»¥åˆ†å·è¿›è¡Œæ‹†åˆ†
         $questionScoreList = explode(';',$questionScore);
-        //·Ö±ð½øÐÐ¸³Öµ
+        //åˆ†åˆ«è¿›è¡Œèµ‹å€¼
         if($selectInfo == 'A' || $selectInfo == '0')
             $trueScore = $questionScoreList[0];
         else if($selectInfo == 'B' || $selectInfo == '1')
@@ -49,11 +49,11 @@ function CalculSingleScore($userSelection)
             $trueScore = $questionScoreList[2];
         else if($selectInfo == 'D')
             $trueScore = $questionScoreList[3];
-        UpdateSelectScoreByID($resultID, $trueScore);//¸üÐÂ·ÖÊý
+        UpdateSelectScoreByID($resultID, $trueScore);//æ›´æ–°åˆ†æ•°
     }
 }
 
-/*¼ÆËãÕûÕÅÊÔ¾íµÄµÃ·Ö,²¢Ð´ÈëTestResult±íÖÐ*/
+/*è®¡ç®—æ•´å¼ è¯•å·çš„å¾—åˆ†,å¹¶å†™å…¥TestResultè¡¨ä¸­*/
 function CalculTestScore($userID, $paperID)
 {
     include_once '../DAL/selectResultDal.php';
@@ -62,23 +62,23 @@ function CalculTestScore($userID, $paperID)
     $isPaperScore = 0;
     $sumSocre = 0;
     $ScoreInfo = NULL;
-    //ÔÚÕâÀïÖØÐÂ²éÑ¯Ò»±ß£¬ÒòÎªÖ®Ç°°Ñµ¥ÏîµÄµÃ·ÖÐ´ÈëÁË
+    //åœ¨è¿™é‡Œé‡æ–°æŸ¥è¯¢ä¸€è¾¹ï¼Œå› ä¸ºä¹‹å‰æŠŠå•é¡¹çš„å¾—åˆ†å†™å…¥äº†
     $userSelection = FindSelectResultByUserPaper($userID, $paperID);
     foreach ($userSelection as $single)
     {
         $sumSocre += $single[5];
     }
-    /*ÅÐ¶Ï¸ÃÊÔ¾íÊÇ·ñÓÐÆÀ·Ö±ê×¼*/
+    /*åˆ¤æ–­è¯¥è¯•å·æ˜¯å¦æœ‰è¯„åˆ†æ ‡å‡†*/
     $paperResult = FindPaperByPaperID($paperID);
     foreach ($paperResult as $single)
     {
         $isPaperScore = $single[4];
     }
-    //Èç¹ûÓÐ
+    //å¦‚æžœæœ‰
     if($isPaperScore)
     {
         $ScoreInfo = GetScoreInfo($paperID, $sumSocre);
-        //Èç¹ûÄÜÕýÈ··µ»Ø½á¹û,½øÐÐ²åÈë
+        //å¦‚æžœèƒ½æ­£ç¡®è¿”å›žç»“æžœ,è¿›è¡Œæ’å…¥
         if($ScoreInfo)
         {
             InsertTestResult($userID, $paperID, $sumSocre, $ScoreInfo);
@@ -86,7 +86,7 @@ function CalculTestScore($userID, $paperID)
     }
 }
 
-/*Í¨¹ýµÃ·Ö»ñÈ¡µÃ·ÖÇø¼ä£¬²¢·µ»ØÃèÊö*/
+/*é€šè¿‡å¾—åˆ†èŽ·å–å¾—åˆ†åŒºé—´ï¼Œå¹¶è¿”å›žæè¿°*/
 function GetScoreInfo($paperID, $sumSocre)
 {
     include_once '../DAL/scoreDal.php';

@@ -1,27 +1,27 @@
 <?php
 /*
  * @chen 
- * »ñÈ¡ËùÓÐµÄÊÔÌâÁÐ±í£¬°üº¬ÒÔÏÂ·½·¨
- * GetAllPaper()  »ñÈ¡ËùÓÐÊÔÌâÁÐ±í
- * SearchPaper($paperName)   ½øÐÐÄ£ºý²éÑ¯
- * GetTypePaper($typeName)   »ñÈ¡Ä³Ò»ÀàÐÍµÄËùÓÐÊÔ¾í
+ * èŽ·å–æ‰€æœ‰çš„è¯•é¢˜åˆ—è¡¨ï¼ŒåŒ…å«ä»¥ä¸‹æ–¹æ³•
+ * GetAllPaper()  èŽ·å–æ‰€æœ‰è¯•é¢˜åˆ—è¡¨
+ * SearchPaper($paperName)   è¿›è¡Œæ¨¡ç³ŠæŸ¥è¯¢
+ * GetTypePaper($typeName)   èŽ·å–æŸä¸€ç±»åž‹çš„æ‰€æœ‰è¯•å·
  */
 
-/*»ñÈ¡ËùÓÐÊÔÌâÁÐ±í*/
+/*èŽ·å–æ‰€æœ‰è¯•é¢˜åˆ—è¡¨*/
 function GetAllPaper()
 {
     include_once '../DAL/paperDal.php';
     return FindALLPaper();
 }
 
-/*½øÐÐÄ£ºý²éÑ¯*/
+/*è¿›è¡Œæ¨¡ç³ŠæŸ¥è¯¢*/
 function SearchPaper($paperName)
 {
     include_once '../DAL/paperDal.php';
     return FindPaperLikePaperName($paperName);
 }
 
-/*»ñÈ¡Ä³Ò»ÀàÐÍµÄËùÓÐÊÔ¾í*/
+/*èŽ·å–æŸä¸€ç±»åž‹çš„æ‰€æœ‰è¯•å·*/
 function GetTypePaper($typeName)
 {
     include_once '../DAL/paperDal.php';

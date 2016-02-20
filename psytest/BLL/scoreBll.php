@@ -1,6 +1,6 @@
 <?php
 
-//ÅÐ¶ÏÆÀ·Ö±ê×¼ÊÇ·ñ³åÍ»
+//åˆ¤æ–­è¯„åˆ†æ ‡å‡†æ˜¯å¦å†²çª
 function IsScoreConflict($paperName, $LScore, $HScore)
 {
     include_once 'makePaperBll.php';
@@ -17,7 +17,7 @@ function IsScoreConflict($paperName, $LScore, $HScore)
     return 0;
 }
 
-//Í¨¹ýpaperName£¬LScore£¬HScoreµÃµ½Ò»¸öÆÀ·Ö±ê×¼µÄÖ÷¼ü£¨scoreID£©
+//é€šè¿‡paperNameï¼ŒLScoreï¼ŒHScoreå¾—åˆ°ä¸€ä¸ªè¯„åˆ†æ ‡å‡†çš„ä¸»é”®ï¼ˆscoreIDï¼‰
 function GetScoreID($paperName, $LScore, $HScore)
 {
     include_once 'makePaperBll.php';
@@ -31,7 +31,7 @@ function GetScoreID($paperName, $LScore, $HScore)
     return $scoreID;
 }
 
-//Í¨¹ýpaperNameºÍµÃ·Ö·µ»ØScoreInfo
+//é€šè¿‡paperNameå’Œå¾—åˆ†è¿”å›žScoreInfo
 function GetScoreInfo($paperName, $score)
 {
     include_once 'makePaperBll.php';

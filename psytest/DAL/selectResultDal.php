@@ -1,94 +1,94 @@
 <?php
 /*yang
- * ²Ù×÷selectResult±í£¬ÆäÖÐ°üº¬ÒÔÏÂ·½·¨£º
- * FindSelectResultBySelectResultID($selectResultID)        Í¨¹ýselectResultIDÕÒµ½ÏàÓ¦µÄSelectResult
- * FindSelectResultByUserID($userID)                        Í¨¹ýuserIDÕÒµ½ÏàÓ¦µÄSelectResult
- * FindSelectResultByPaperID($paperID)                      Í¨¹ýpaperIDÕÒµ½ÏàÓ¦µÄSelectResult
- * FindSelectResultByQuestionID($questionID)                Í¨¹ýquestionIDÕÒµ½ÏàÓ¦µÄSelectResult
- * FindSelectResultByUserPaper($userID,$paperID)            Í¨¹ýuserIDºÍpaperIDÕÒµ½ÏàÓ¦µÄSelectResult
- * InsertSelectResult($userID,$paperID,$questionID,$selectInfo,$selectScore)   Ôö¼ÓÒ»¸öSelectResult
- * UpdateSelectResult($selectResultID,$userID,$paperID,$questionID,$selectInfo,$selectScore)  ¸üÐÂÒ»¸öSelectResult
- * DeleteSelectResult($selectResultID)                       Í¨¹ýselectResultIDÉ¾³ýÒ»¸öSelectResult
- * DeleteSelectResultByPaperID($paperID)            Í¨¹ý$paperIDÉ¾³ý
- * UpdateSelectScoreByID($selectResultID, $selectScore)  Í¨¹ýselectResultID¸üÐÂselectScore
+ * æ“ä½œselectResultè¡¨ï¼Œå…¶ä¸­åŒ…å«ä»¥ä¸‹æ–¹æ³•ï¼š
+ * FindSelectResultBySelectResultID($selectResultID)        é€šè¿‡selectResultIDæ‰¾åˆ°ç›¸åº”çš„SelectResult
+ * FindSelectResultByUserID($userID)                        é€šè¿‡userIDæ‰¾åˆ°ç›¸åº”çš„SelectResult
+ * FindSelectResultByPaperID($paperID)                      é€šè¿‡paperIDæ‰¾åˆ°ç›¸åº”çš„SelectResult
+ * FindSelectResultByQuestionID($questionID)                é€šè¿‡questionIDæ‰¾åˆ°ç›¸åº”çš„SelectResult
+ * FindSelectResultByUserPaper($userID,$paperID)            é€šè¿‡userIDå’ŒpaperIDæ‰¾åˆ°ç›¸åº”çš„SelectResult
+ * InsertSelectResult($userID,$paperID,$questionID,$selectInfo,$selectScore)   å¢žåŠ ä¸€ä¸ªSelectResult
+ * UpdateSelectResult($selectResultID,$userID,$paperID,$questionID,$selectInfo,$selectScore)  æ›´æ–°ä¸€ä¸ªSelectResult
+ * DeleteSelectResult($selectResultID)                       é€šè¿‡selectResultIDåˆ é™¤ä¸€ä¸ªSelectResult
+ * DeleteSelectResultByPaperID($paperID)            é€šè¿‡$paperIDåˆ é™¤
+ * UpdateSelectScoreByID($selectResultID, $selectScore)  é€šè¿‡selectResultIDæ›´æ–°selectScore
  */
 
 
 function FindSelectResultBySelectResultID($selectResultID)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from selectresult
     where SelectResultID = $selectResultID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return selectQuery($query);
 }
 
 function FindSelectResultByUserID($userID)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from selectresult
     where UserID = $userID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return selectQuery($query);
 }
 function FindSelectResultByPaperID($paperID)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from selectresult
     where PaperID = $paperID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return selectQuery($query);
 }
 
 function FindSelectResultByQuestionID($questionID)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from selectresult
     where QuestionID = $questionID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return selectQuery($query);
 }
 
 function FindSelectResultByUserPaper($userID, $paperID)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from selectresult
     where UserID = $userID and  PaperID = $paperID" ;
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return selectQuery($query);
 }
 
 function InsertSelectResult($userID,$paperID,$questionID,$selectInfo,$selectScore)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "insert into selectresult (UserID,PaperID,QuestionID,SelectInfo,SelectScore)
     values($userID,$paperID,$questionID,'$selectInfo',$selectScore) ";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return commonQuery($query);
 }
 
 function UpdateSelectResult($selectResultID,$userID,$paperID,$questionID,$selectInfo,$selectScore)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "update selectresult
     set UserID = $userID, PaperID = $paperID, QuestionID = $questionID,
     SelectInfo = '$selectInfo', SelectScore = $selectScore
     where SelectResultID = $selectResultID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return commonQuery($query);
 }
 
@@ -103,12 +103,12 @@ function UpdateSelectScoreByID($selectResultID, $selectScore)
 
 function DeleteSelectResult($selectResultID)
 {
-    //°üº¬Êý¾Ý¿â²Ù×÷ÎÄ¼þ
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "delete from selectresult
     where SelectResultID = $selectResultID";
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return commonQuery($query);
 }
 

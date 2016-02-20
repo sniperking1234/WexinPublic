@@ -1,20 +1,20 @@
 <?php
 /*
  * @Tien
- * Ìí¼Ó±à¼­ÊÔ¾í¡£°üº¬ÒÔÏÂ·½·¨
- * UpdatePaperInfo¸üÐÂÊÔ¾íÐÅÏ¢,Èç¹ûÒªÐÞ¸ÄÊÔ¾íÃû£¬ÒªÅÐ¶ÏÊÇ·ñÖØ¸´
- * DeletePaperForce($paperName) //Ç¿ÖÆÉ¾³ýÊÔ¾í£¨ÏÈ½«ÒÀÀµÓÚÕâ¸öPaperµÄÊý¾ÝÉ¾³ý£¬È»ºóÔÙÉ¾³ýPaper£©
- * DeletePaperNormal($paperName)Ö±½ÓÉ¾³ýÊÔ¾í
- * AddNewPaper,Ìí¼ÓÐÂÊÔ¾í,ÒªÅÐ¶ÏÊÔ¾íÃûÊÇ·ñÖØ¸´£¬Èç¹û²»ÖØ¸´½øÐÐÌí¼Ó
- * IsSamePaper($paperName)ÅÐ¶ÏÊÔ¾íÃûÊÇ·ñÖØ¸´
- * GetAllPaperName(),»ñµÃËùÓÐÊÔ¾íÃû
- * GetPaperID($paperName)£¬Í¨¹ýÊÔ¾íÃûÕÒµ½ÊÔ¾íÖ÷¼ü£¨paperID£©
- * DeleteOldPaper($paperID)£¬Í¨¹ýPaperID£¨Ö÷¼ü£©É¾³ýÒ»ÕÅÊÔ¾í
- *  IsPaperDependency($paperName)²éÑ¯ÊÇ·ñÓÐÒÀÀµÓÚ¸ÃÊÔ¾íµÄ¼ÇÂ¼£¨Íâ¼ü£©
+ * æ·»åŠ ç¼–è¾‘è¯•å·ã€‚åŒ…å«ä»¥ä¸‹æ–¹æ³•
+ * UpdatePaperInfoæ›´æ–°è¯•å·ä¿¡æ¯,å¦‚æžœè¦ä¿®æ”¹è¯•å·åï¼Œè¦åˆ¤æ–­æ˜¯å¦é‡å¤
+ * DeletePaperForce($paperName) //å¼ºåˆ¶åˆ é™¤è¯•å·ï¼ˆå…ˆå°†ä¾èµ–äºŽè¿™ä¸ªPaperçš„æ•°æ®åˆ é™¤ï¼Œç„¶åŽå†åˆ é™¤Paperï¼‰
+ * DeletePaperNormal($paperName)ç›´æŽ¥åˆ é™¤è¯•å·
+ * AddNewPaper,æ·»åŠ æ–°è¯•å·,è¦åˆ¤æ–­è¯•å·åæ˜¯å¦é‡å¤ï¼Œå¦‚æžœä¸é‡å¤è¿›è¡Œæ·»åŠ 
+ * IsSamePaper($paperName)åˆ¤æ–­è¯•å·åæ˜¯å¦é‡å¤
+ * GetAllPaperName(),èŽ·å¾—æ‰€æœ‰è¯•å·å
+ * GetPaperID($paperName)ï¼Œé€šè¿‡è¯•å·åæ‰¾åˆ°è¯•å·ä¸»é”®ï¼ˆpaperIDï¼‰
+ * DeleteOldPaper($paperID)ï¼Œé€šè¿‡PaperIDï¼ˆä¸»é”®ï¼‰åˆ é™¤ä¸€å¼ è¯•å·
+ *  IsPaperDependency($paperName)æŸ¥è¯¢æ˜¯å¦æœ‰ä¾èµ–äºŽè¯¥è¯•å·çš„è®°å½•ï¼ˆå¤–é”®ï¼‰
  *   
  */
 
-//²åÈëÌâÄ¿µ½Ö¸¶¨ÌâºÅ£¬ÆäËû´óÓÚµÈÓÚ¸ÃÌâºÅµÄÌâÄ¿ÌâºÅ¼ÓÒ»
+//æ’å…¥é¢˜ç›®åˆ°æŒ‡å®šé¢˜å·ï¼Œå…¶ä»–å¤§äºŽç­‰äºŽè¯¥é¢˜å·çš„é¢˜ç›®é¢˜å·åŠ ä¸€
 function AddUniqueQuestion($paperName, $questionNum, $questionInfo, $questionType, $questionSelect, $questionScore)
 {
     include_once '../DAl/questionDal.php';
@@ -34,14 +34,14 @@ function AddUniqueQuestion($paperName, $questionNum, $questionInfo, $questionTyp
     return 1;
 }
 
-//¸üÐÂÊÔ¾íÐÅÏ¢,Èç¹ûÒªÐÞ¸ÄÊÔ¾íÃû£¬ÒªÅÐ¶ÏÊÇ·ñÖØ¸´
+//æ›´æ–°è¯•å·ä¿¡æ¯,å¦‚æžœè¦ä¿®æ”¹è¯•å·åï¼Œè¦åˆ¤æ–­æ˜¯å¦é‡å¤
 function UpdatePaperInfo($oldPaperName,$newPaperName,$paperInfo, $paperType, $isPaperScore, $imagePath)
 {
     include_once '../DAl/paperDal.php';
     
 }
 
-//Ç¿ÖÆÉ¾³ýÊÔ¾í
+//å¼ºåˆ¶åˆ é™¤è¯•å·
 function DeletePaperForce($paperName) 
 {
     include_once '../DAl/selectResultDal.php';
@@ -50,7 +50,7 @@ function DeletePaperForce($paperName)
     
 }
 
-//Ö±½ÓÉ¾³ýÊÔ¾í
+//ç›´æŽ¥åˆ é™¤è¯•å·
 function DeletePaperNormal($paperName)
 {
     $paperID = GetPaperID($paperName);
@@ -60,7 +60,7 @@ function DeletePaperNormal($paperName)
     }
     return 0;
 }
-//²éÑ¯ÊÇ·ñÓÐÒÀÀµÓÚ¸ÃÊÔ¾íµÄ¼ÇÂ¼£¨Íâ¼ü£©
+//æŸ¥è¯¢æ˜¯å¦æœ‰ä¾èµ–äºŽè¯¥è¯•å·çš„è®°å½•ï¼ˆå¤–é”®ï¼‰
 function IsPaperDependency($paperName)
 {
 /*     include_once 'sqlQuery.php';
@@ -81,7 +81,7 @@ function IsPaperDependency($paperName)
     }
 }
     
-//Ìí¼ÓÐÂÊÔ¾í,ÒªÅÐ¶ÏÊÔ¾íÃûÊÇ·ñÖØ¸´£¬Èç¹û²»ÖØ¸´½øÐÐÌí¼Ó
+//æ·»åŠ æ–°è¯•å·,è¦åˆ¤æ–­è¯•å·åæ˜¯å¦é‡å¤ï¼Œå¦‚æžœä¸é‡å¤è¿›è¡Œæ·»åŠ 
 function AddNewPaper($paperName, $paperInfo, $paperType, $isPaperScore, $imagePath)
 {
     if (IsSamePaper($paperName) == 0)
@@ -94,7 +94,7 @@ function AddNewPaper($paperName, $paperInfo, $paperType, $isPaperScore, $imagePa
     }
 
 }
-//ÅÐ¶ÏÊÔ¾íÃûÊÇ·ñÖØ¸´
+//åˆ¤æ–­è¯•å·åæ˜¯å¦é‡å¤
 function IsSamePaper($paperName)
 {
  /*    include_once 'sqlQuery.php';
@@ -116,7 +116,7 @@ function IsSamePaper($paperName)
      
 }
 
-//»ñµÃËùÓÐÊÔ¾íÃû
+//èŽ·å¾—æ‰€æœ‰è¯•å·å
 function GetAllPaperName()
 {
     include_once 'sqlQuery.php';
@@ -124,7 +124,7 @@ function GetAllPaperName()
     return selectQuery($query);
 }
 
-//Í¨¹ýÊÔ¾íÃûÕÒµ½ÊÔ¾íÖ÷¼ü£¨paperID£©
+//é€šè¿‡è¯•å·åæ‰¾åˆ°è¯•å·ä¸»é”®ï¼ˆpaperIDï¼‰
 function GetPaperID($paperName)
 {
 //     include_once 'sqlQuery.php';
@@ -141,7 +141,7 @@ function GetPaperID($paperName)
     return $paperID;   
 }
 
-//Í¨¹ýPaperID£¨Ö÷¼ü£©É¾³ýÒ»ÕÅÊÔ¾í
+//é€šè¿‡PaperIDï¼ˆä¸»é”®ï¼‰åˆ é™¤ä¸€å¼ è¯•å·
 function  DeleteOldPaper($paperID)
 {
     if(DeletePaper($paperID))

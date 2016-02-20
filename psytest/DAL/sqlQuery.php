@@ -1,19 +1,19 @@
 <?php
 /* @chen
- * ¶ÔÊı¾İ¿âµÄÖ±½Ó²Ù×÷£¬·â×°ÎªÁ½¸öº¯Êı
- * SelectQuery($query)£¬¶ÔÑ¡ÔñÓï¾äµÄ²Ù×÷£¬·µ»Ø²éÑ¯½á¹ûÊı×é£¨¶şÎ¬£©
- * CommonQuery($query)£¬¶ÔÔöÉ¾¸ÄÓï¾äµÄ²Ù×÷£¬³É¹¦·µ»Ø1£¬Ê§°Ü·µ»Ø0
+ * å¯¹æ•°æ®åº“çš„ç›´æ¥æ“ä½œï¼Œå°è£…ä¸ºä¸¤ä¸ªå‡½æ•°
+ * SelectQuery($query)ï¼Œå¯¹é€‰æ‹©è¯­å¥çš„æ“ä½œï¼Œè¿”å›æŸ¥è¯¢ç»“æœæ•°ç»„ï¼ˆäºŒç»´ï¼‰
+ * CommonQuery($query)ï¼Œå¯¹å¢åˆ æ”¹è¯­å¥çš„æ“ä½œï¼ŒæˆåŠŸè¿”å›1ï¼Œå¤±è´¥è¿”å›0
  */
 function SelectQuery($query) 
 {
-    //°üº¬ÅäÖÃÎÄ¼ş
+    //åŒ…å«é…ç½®æ–‡ä»¶
     include '../config.php';
     if($debug)
     {
         echo $query;
         echo "<br>";
     }
-    //´´½¨Êı¾İ¿âÁ¬½Ó
+    //åˆ›å»ºæ•°æ®åº“è¿æ¥
     $conn=mysqli_connect($mysql_server_name,$mysql_username,$mysql_password);
     mysqli_select_db($conn, $mysql_database);
     $result = mysqli_query($conn, $query);
@@ -22,24 +22,24 @@ function SelectQuery($query)
     {
         $array[] = $row;
     }
-    //ÊÍ·Å×ÊÔ´,¹Ø±ÕÁ¬½Ó
+    //é‡Šæ”¾èµ„æº,å…³é—­è¿æ¥
     mysqli_free_result($result);
     mysqli_close($conn);
     
-    //·µ»Ø½á¹û
+    //è¿”å›ç»“æœ
     return $array;
 }
 
 function CommonQuery($query)
 {
-    //°üº¬ÅäÖÃÎÄ¼ş
+    //åŒ…å«é…ç½®æ–‡ä»¶
     include '../config.php';
     if($debug)
     {
         echo $query;
         echo "<br>";
     }
-    //´´½¨Êı¾İ¿âÁ¬½Ó
+    //åˆ›å»ºæ•°æ®åº“è¿æ¥
     $conn=mysqli_connect($mysql_server_name,$mysql_username,$mysql_password);
     mysqli_select_db($conn, $mysql_database);
     $result=mysqli_query($conn, $query);

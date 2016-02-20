@@ -2,31 +2,31 @@
 
 /* 
  * @hero chen
- * ²Ù×÷paper±í£¬ÆäÖĞ°üº¬ÒÔÏÂ·½·¨
- * FindPaperByPaperID($paperID)   Í¨¹ıpaperID£¨Ö÷¼ü£©ÕÒµ½ÏàÓ¦ÊÔ¾í
- * FindPaperByPaperName($paperName)    Í¨¹ıÊÔ¾íÃû³ÆpaperNameÕÒµ½ÏàÓ¦ÊÔ¾í
- * FindPaperLikePaperName($paperName)     Í¨¹ıÊÔ¾íÃû³ÆpaperName½øĞĞÄ£ºı²éÕÒ
- * FindPaperByPaperType($paperType)     Í¨¹ıÊÔ¾íÀàĞÍÀ´²éÕÒ¸ÃÀàĞÍµÄËùÓĞÊÔ¾í
- * InsertPaper($paperName, $paperInfo, $paperType, $isPaperScore, $imagePath) Ïòpaper±í²åÈëÒ»ÌõÊı¾İ
- * DeletePaper($paperID) Í¨¹ıpaperID£¨Ö÷¼ü£©É¾³ıÒ»ÌõĞÅÏ¢
- * FindALLPaper()      ·µ»ØËùÓĞÊÔÌâ
- * UpdatePaper($paperID, $paperName, $paperInfo, $paperType, $isPaperScore, $imagePath) Í¨¹ıpaperID£¨Ö÷¼ü£©¸üĞÂÒ»Ìõ¼ÇÂ¼
+ * æ“ä½œpaperè¡¨ï¼Œå…¶ä¸­åŒ…å«ä»¥ä¸‹æ–¹æ³•
+ * FindPaperByPaperID($paperID)   é€šè¿‡paperIDï¼ˆä¸»é”®ï¼‰æ‰¾åˆ°ç›¸åº”è¯•å·
+ * FindPaperByPaperName($paperName)    é€šè¿‡è¯•å·åç§°paperNameæ‰¾åˆ°ç›¸åº”è¯•å·
+ * FindPaperLikePaperName($paperName)     é€šè¿‡è¯•å·åç§°paperNameè¿›è¡Œæ¨¡ç³ŠæŸ¥æ‰¾
+ * FindPaperByPaperType($paperType)     é€šè¿‡è¯•å·ç±»å‹æ¥æŸ¥æ‰¾è¯¥ç±»å‹çš„æ‰€æœ‰è¯•å·
+ * InsertPaper($paperName, $paperInfo, $paperType, $isPaperScore, $imagePath) å‘paperè¡¨æ’å…¥ä¸€æ¡æ•°æ®
+ * DeletePaper($paperID) é€šè¿‡paperIDï¼ˆä¸»é”®ï¼‰åˆ é™¤ä¸€æ¡ä¿¡æ¯
+ * FindALLPaper()      è¿”å›æ‰€æœ‰è¯•é¢˜
+ * UpdatePaper($paperID, $paperName, $paperInfo, $paperType, $isPaperScore, $imagePath) é€šè¿‡paperIDï¼ˆä¸»é”®ï¼‰æ›´æ–°ä¸€æ¡è®°å½•
  */
 
 
-/*Í¨¹ıPaperID£¨Ö÷¼ü£©ÕÒµ½ÏàÓ¦ÊÔ¾í*/
+/*é€šè¿‡PaperIDï¼ˆä¸»é”®ï¼‰æ‰¾åˆ°ç›¸åº”è¯•å·*/
 function FindPaperByPaperID($paperID)
 {
-    //°üº¬Êı¾İ¿â²Ù×÷ÎÄ¼ş
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php'; 
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from paper 
         where PaperID = $paperID";
-    //·µ»Ø½á¹û
+    //è¿”å›ç»“æœ
     return selectQuery($query);
 }
 
-/*Í¨¹ıÊÔ¾íÃû³ÆÕÒµ½ÏàÓ¦ÊÔ¾í*/
+/*é€šè¿‡è¯•å·åç§°æ‰¾åˆ°ç›¸åº”è¯•å·*/
 function FindPaperByPaperName($paperName)
 {
     include_once 'sqlQuery.php';
@@ -35,17 +35,17 @@ function FindPaperByPaperName($paperName)
     return selectQuery($query);
 }
 
-/*Ïòpaper±í²åÈëÒ»ÌõÊı¾İ*/
+/*å‘paperè¡¨æ’å…¥ä¸€æ¡æ•°æ®*/
 function  InsertPaper($paperName, $paperInfo, $paperType, $isPaperScore, $imagePath)
 {
     include_once 'sqlQuery.php';
-    //$isPaperScoreÊÇintÀàĞÍ£¬²»ĞèÒª¼Óµ¥ÒıºÅ
+    //$isPaperScoreæ˜¯intç±»å‹ï¼Œä¸éœ€è¦åŠ å•å¼•å·
     $query = "insert into paper (PaperName,PaperInfo,PaperType,IsPaperScore,ImagePath) 
         values('$paperName','$paperInfo','$paperType',$isPaperScore,'$imagePath') ";
     return commonQuery($query);
 }
 
-/*Í¨¹ıPaperID£¨Ö÷¼ü£©É¾³ıÒ»ÌõĞÅÏ¢*/
+/*é€šè¿‡PaperIDï¼ˆä¸»é”®ï¼‰åˆ é™¤ä¸€æ¡ä¿¡æ¯*/
 function  DeletePaper($paperID)
 {
     include_once 'sqlQuery.php';
@@ -54,11 +54,11 @@ function  DeletePaper($paperID)
     return commonQuery($query);
 }
 
-/*Í¨¹ıPaperID£¨Ö÷¼ü£©¸üĞÂÒ»Ìõ¼ÇÂ¼*/
+/*é€šè¿‡PaperIDï¼ˆä¸»é”®ï¼‰æ›´æ–°ä¸€æ¡è®°å½•*/
 function  UpdatePaper($paperID, $paperName, $paperInfo, $paperType, $isPaperScore, $imagePath)
 {
     include_once 'sqlQuery.php';
-    //$isPaperScore $paperID ÊÇintÀàĞÍ£¬²»ĞèÒª¼Óµ¥ÒıºÅ
+    //$isPaperScore $paperID æ˜¯intç±»å‹ï¼Œä¸éœ€è¦åŠ å•å¼•å·
     $query = "update paper 
         set PaperName = '$paperName', PaperInfo = '$paperInfo', PaperType = '$paperType',
         IsPaperScore = $isPaperScore, ImagePath = '$imagePath' 
@@ -66,7 +66,7 @@ function  UpdatePaper($paperID, $paperName, $paperInfo, $paperType, $isPaperScor
     return commonQuery($query);
 }
 
-/*Í¨¹ıÊÔ¾íÃû³Æ½øĞĞÄ£ºı²éÕÒ*/
+/*é€šè¿‡è¯•å·åç§°è¿›è¡Œæ¨¡ç³ŠæŸ¥æ‰¾*/
 function FindPaperLikePaperName($paperName)
 {
     include_once 'sqlQuery.php';
@@ -75,7 +75,7 @@ function FindPaperLikePaperName($paperName)
     return selectQuery($query);
 }
 
-/*Í¨¹ıÊÔ¾íÀàĞÍÀ´²éÕÒ¸ÃÀàĞÍµÄËùÓĞÊÔ¾í*/
+/*é€šè¿‡è¯•å·ç±»å‹æ¥æŸ¥æ‰¾è¯¥ç±»å‹çš„æ‰€æœ‰è¯•å·*/
 function FindPaperByPaperType($paperType)
 {
     include_once 'sqlQuery.php';
@@ -84,7 +84,7 @@ function FindPaperByPaperType($paperType)
     return selectQuery($query);
 }
 
-/*·µ»ØËùÓĞÊÔÌâ*/
+/*è¿”å›æ‰€æœ‰è¯•é¢˜*/
 function FindALLPaper()
 {
     include_once 'sqlQuery.php';

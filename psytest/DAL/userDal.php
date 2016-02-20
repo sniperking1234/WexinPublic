@@ -3,67 +3,67 @@
 /*
  * function findUsersByName($userName)
  * {
- * //°üº¬ÅäÖÃÎÄ¼ş
+ * //åŒ…å«é…ç½®æ–‡ä»¶
  * include '../config.php';
- * //´´½¨Êı¾İ¿âÁ¬½Ó
+ * //åˆ›å»ºæ•°æ®åº“è¿æ¥
  * $conn=mysqli_connect($mysql_server_name,$mysql_username,$mysql_password);
  * mysqli_select_db($mysql_database);
- * //´´½¨sqlÓï¾ä²¢½øĞĞ²éÑ¯
+ * //åˆ›å»ºsqlè¯­å¥å¹¶è¿›è¡ŒæŸ¥è¯¢
  * $query="select * from userinfo ";
  * if(isset($userName)&&!$userName=='')
  * {
  * $query = $query."where UserID = '".$userName."'";
  * }
  * $result=mysqli_query($query,$conn);
- * //½«·µ»ØÖµ·ÅÈëÊı×é
+ * //å°†è¿”å›å€¼æ”¾å…¥æ•°ç»„
  * $array = array();
  * while($row=mysql_fetch_row($result))
  * {
  * $array[] = $row;
  * }
  *
- * //ÊÍ·Å×ÊÔ´,¹Ø±ÕÁ¬½Ó
+ * //é‡Šæ”¾èµ„æº,å…³é—­è¿æ¥
  * mysqli_free_result($result);
  * mysqli_close();
  *
- * //·µ»Ø½á¹û
+ * //è¿”å›ç»“æœ
  * return $array;
  * }
  *
  * function findUsersByNamePwd($userName, $psw)
  * {
- * //°üº¬ÅäÖÃÎÄ¼ş
+ * //åŒ…å«é…ç½®æ–‡ä»¶
  * include '../config.php';
- * //´´½¨Êı¾İ¿âÁ¬½Ó
+ * //åˆ›å»ºæ•°æ®åº“è¿æ¥
  * $conn=mysqli_connect($mysql_server_name,$mysql_username,$mysql_password);
  * mysqli_select_db($mysql_database);
- * //´´½¨sqlÓï¾ä²¢½øĞĞ²éÑ¯
+ * //åˆ›å»ºsqlè¯­å¥å¹¶è¿›è¡ŒæŸ¥è¯¢
  * $query="select * from userinfo ";
  * if(isset($userName)&&!$userName=='')
  * {
  * $query = $query."where UserID = '".$userName."' and PWD = '$psw'";
  * }
  * $result=mysqli_query($query,$conn);
- * //½«·µ»ØÖµ·ÅÈëÊı×é
+ * //å°†è¿”å›å€¼æ”¾å…¥æ•°ç»„
  * $array = array();
  * while($row=mysql_fetch_row($result))
  * {
  * $array[] = $row;
  * }
  *
- * //ÊÍ·Å×ÊÔ´,¹Ø±ÕÁ¬½Ó
+ * //é‡Šæ”¾èµ„æº,å…³é—­è¿æ¥
  * mysqli_free_result($result);
  * mysqli_close();
  *
- * //·µ»Ø½á¹û
+ * //è¿”å›ç»“æœ
  * return $array;
  * }
  *
  * function insertUser($userName, $userPwd)
  * {
- * //°üº¬ÅäÖÃÎÄ¼ş
+ * //åŒ…å«é…ç½®æ–‡ä»¶
  * include '../config.php';
- * //´´½¨Êı¾İ¿âÁ¬½Ó
+ * //åˆ›å»ºæ•°æ®åº“è¿æ¥
  * $conn=mysqli_connect($mysql_server_name,$mysql_username,$mysql_password);
  * mysqli_select_db($mysql_database);
  *
@@ -80,40 +80,40 @@
  * return 0;
  * }
  */
-// Í¨¹ıuserId²éÕÒ
+// é€šè¿‡userIdæŸ¥æ‰¾
 function findUsersByID($userName)
 {
-    // °üº¬Êı¾İ¿â²Ù×÷ÎÄ¼ş
+    // åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    // Éú³ÉsqlÓï¾ä
+    // ç”Ÿæˆsqlè¯­å¥
     $query = "select * from userinfo
      where UserID = $userName";
-    // ·µ»Ø½á¹û
+    // è¿”å›ç»“æœ
     return selectQuery($query);
 }
-// Í¨¹ıuserName²éÕÒ
+// é€šè¿‡userNameæŸ¥æ‰¾
 function findUsersByName($userName)
 {
-    // °üº¬Êı¾İ¿â²Ù×÷ÎÄ¼ş
+    // åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    // Éú³ÉsqlÓï¾ä
+    // ç”Ÿæˆsqlè¯­å¥
     $query = "select * from userinfo
     where UserName = '$userName'";
-    // ·µ»Ø½á¹û
+    // è¿”å›ç»“æœ
     return selectQuery($query);
 }
-// Í¨¹ıuserIdÓëpassword²éÕÒ
+// é€šè¿‡userIdä¸passwordæŸ¥æ‰¾
 function findUsersByNamePwd($userName, $psw)
 {
-    // °üº¬Êı¾İ¿â²Ù×÷ÎÄ¼ş
+    // åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    // Éú³ÉsqlÓï¾ä
+    // ç”Ÿæˆsqlè¯­å¥
     $query = "select * from userinfo
         where UserID = $userName and PWD = '$psw'";
-    // ·µ»Ø½á¹û
+    // è¿”å›ç»“æœ
     return selectQuery($query);
 }
-// ÓÃ»§Ìí¼Ó 
+// ç”¨æˆ·æ·»åŠ  
 function InsertUser($userId, $userPwd, $account, $userName, $idNum, $authority)
 {
     include_once 'sqlQuery.php';
@@ -121,7 +121,7 @@ function InsertUser($userId, $userPwd, $account, $userName, $idNum, $authority)
     values($userId,'$userPwd','$account','$userName','$idNum',$authority) ";
     return commonQuery($query);
 }
-/* Í¨¹ıUserID£¨Ö÷¼ü£©É¾³ıÒ»ÌõĞÅÏ¢ */
+/* é€šè¿‡UserIDï¼ˆä¸»é”®ï¼‰åˆ é™¤ä¸€æ¡ä¿¡æ¯ */
 function DeleteUser($userID)
 {
     include_once 'sqlQuery.php';
@@ -129,21 +129,21 @@ function DeleteUser($userID)
          where UserID = $userID";
     return commonQuery($query);
 }
-// ĞŞ¸ÄÓÃ»§Ãû
+// ä¿®æ”¹ç”¨æˆ·å
 function UpdateUserName($userID, $userName)
 {
     include_once 'sqlQuery.php';
-    // $isPaperScore $paperID ÊÇintÀàĞÍ£¬²»ĞèÒª¼Óµ¥ÒıºÅ
+    // $isPaperScore $paperID æ˜¯intç±»å‹ï¼Œä¸éœ€è¦åŠ å•å¼•å·
     $query = "update userinfo
              set UserName = '$userName'
          where UserID = $userID";
     return commonQuery($query);
 }
-// ÊµÃûÈÏÖ¤²¢ĞŞ¸ÄÈ¨ÏŞ
+// å®åè®¤è¯å¹¶ä¿®æ”¹æƒé™
 function UpdateID($userID, $idNum, $authority)
 {
     include_once 'sqlQuery.php';
-    // $isPaperScore $paperID ÊÇintÀàĞÍ£¬²»ĞèÒª¼Óµ¥ÒıºÅ
+    // $isPaperScore $paperID æ˜¯intç±»å‹ï¼Œä¸éœ€è¦åŠ å•å¼•å·
     $query = "update userinfo
     set IDNumber = '$idNum',Authority = $authority
     where UserID = $userID";

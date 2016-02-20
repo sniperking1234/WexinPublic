@@ -2,30 +2,30 @@
 
 /*
  * @chen
- * ²Ù×÷score±í£¬ÆäÖĞ°üº¬ÒÔÏÂ·½·¨
- * FindScoreByScoreID($scoreID)   Í¨¹ıScoreID£¨Ö÷¼ü£©ÕÒµ½ÏàÓ¦ÆÀ·Ö±ê×¼
- * FindScoreByPaperID($paperID)   ¹ıPaperIDÕÒµ½¸ÃÊÔ¾íµÄËùÓĞÆÀ·Ö±ê×¼
- * FindScoreInfoByPaperScore($paperID, $score)  Í¨¹ıpaperIDºÍscore²é¿´¸ÃscoreÂäÔÚÄÄÒ»¸öµÃ·ÖÇø¼äÖĞ£¬¸Ãº¯ÊıµÄ·µ»ØÖµÎªScoreInfo
+ * æ“ä½œscoreè¡¨ï¼Œå…¶ä¸­åŒ…å«ä»¥ä¸‹æ–¹æ³•
+ * FindScoreByScoreID($scoreID)   é€šè¿‡ScoreIDï¼ˆä¸»é”®ï¼‰æ‰¾åˆ°ç›¸åº”è¯„åˆ†æ ‡å‡†
+ * FindScoreByPaperID($paperID)   è¿‡PaperIDæ‰¾åˆ°è¯¥è¯•å·çš„æ‰€æœ‰è¯„åˆ†æ ‡å‡†
+ * FindScoreInfoByPaperScore($paperID, $score)  é€šè¿‡paperIDå’ŒscoreæŸ¥çœ‹è¯¥scoreè½åœ¨å“ªä¸€ä¸ªå¾—åˆ†åŒºé—´ä¸­ï¼Œè¯¥å‡½æ•°çš„è¿”å›å€¼ä¸ºScoreInfo
  * FindScoreID($paperID, $LScore, $HScore)
- * InsertScore($paperID, $LScore, $HScore, $scoreInfo)  Ïòscore±í²åÈëÒ»ÌõÊı¾İ
- * UpdateScore($scoreID, $paperID, $LScore, $HScore, $scoreInfo)   Í¨¹ıscoreID£¨Ö÷¼ü£©¸üĞÂÒ»Ìõ¼ÇÂ¼
- * DeleteScore($scoreID)   Í¨¹ıscoreID£¨Ö÷¼ü£©É¾³ıÒ»Ìõ¼ÇÂ¼
- * DeleteScoreByPaperID($paperID)   Í¨¹ıpaperIDÉ¾³ıÕû¸öÊÔ¾íµÄ¼ÇÂ¼
+ * InsertScore($paperID, $LScore, $HScore, $scoreInfo)  å‘scoreè¡¨æ’å…¥ä¸€æ¡æ•°æ®
+ * UpdateScore($scoreID, $paperID, $LScore, $HScore, $scoreInfo)   é€šè¿‡scoreIDï¼ˆä¸»é”®ï¼‰æ›´æ–°ä¸€æ¡è®°å½•
+ * DeleteScore($scoreID)   é€šè¿‡scoreIDï¼ˆä¸»é”®ï¼‰åˆ é™¤ä¸€æ¡è®°å½•
+ * DeleteScoreByPaperID($paperID)   é€šè¿‡paperIDåˆ é™¤æ•´ä¸ªè¯•å·çš„è®°å½•
  */
 
-/*Í¨¹ıScoreID£¨Ö÷¼ü£©ÕÒµ½ÏàÓ¦ÆÀ·Ö±ê×¼*/
+/*é€šè¿‡ScoreIDï¼ˆä¸»é”®ï¼‰æ‰¾åˆ°ç›¸åº”è¯„åˆ†æ ‡å‡†*/
 function FindScoreByScoreID($scoreID)
 {
-    //°üº¬Êı¾İ¿â²Ù×÷ÎÄ¼ş
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from score
         where ScoreID = $scoreID";
-    //·µ»Ø½á¹û
+    //è¿”å›ç»“æœ
     return selectQuery($query);
 }
 
-/*Í¨¹ıPaperIDÕÒµ½¸ÃÊÔ¾íµÄËùÓĞÆÀ·Ö±ê×¼*/
+/*é€šè¿‡PaperIDæ‰¾åˆ°è¯¥è¯•å·çš„æ‰€æœ‰è¯„åˆ†æ ‡å‡†*/
 function FindScoreByPaperID($paperID)
 {
     include_once 'sqlQuery.php';
@@ -34,28 +34,28 @@ function FindScoreByPaperID($paperID)
     return selectQuery($query);
 }
 
-/*Ïòscore±í²åÈëÒ»ÌõÊı¾İ*/
+/*å‘scoreè¡¨æ’å…¥ä¸€æ¡æ•°æ®*/
 function InsertScore($paperID, $LScore, $HScore, $scoreInfo)
 {
     include_once 'sqlQuery.php';
-    //$paperID,$LScore,$HScoreÎªÊı×Ö£¬²»ĞèÒª¼Óµ¥ÒıºÅ
+    //$paperID,$LScore,$HScoreä¸ºæ•°å­—ï¼Œä¸éœ€è¦åŠ å•å¼•å·
     $query = "insert into score (PaperID,LScore,HScore,ScoreInfo)
         values($paperID,$LScore,$HScore,'$scoreInfo') ";
     return CommonQuery($query);
 }
 
-/*Í¨¹ıscoreID£¨Ö÷¼ü£©¸üĞÂÒ»Ìõ¼ÇÂ¼*/
+/*é€šè¿‡scoreIDï¼ˆä¸»é”®ï¼‰æ›´æ–°ä¸€æ¡è®°å½•*/
 function UpdateScore($scoreID, $paperID, $LScore, $HScore, $scoreInfo)
 {
     include_once 'sqlQuery.php';
-    //$paperID,$LScore,$HScore,$scoreIDÎªÊı×Ö£¬²»ĞèÒª¼Óµ¥ÒıºÅ
+    //$paperID,$LScore,$HScore,$scoreIDä¸ºæ•°å­—ï¼Œä¸éœ€è¦åŠ å•å¼•å·
     $query="update score
         set PaperID = $paperID, LScore = $LScore, Hscore = $HScore, ScoreInfo = '$scoreInfo' 
         where scoreID = $scoreID";
     return CommonQuery($query);
 }
 
-/*Í¨¹ıscoreID£¨Ö÷¼ü£©É¾³ıÒ»Ìõ¼ÇÂ¼*/
+/*é€šè¿‡scoreIDï¼ˆä¸»é”®ï¼‰åˆ é™¤ä¸€æ¡è®°å½•*/
 function DeleteScore($scoreID)
 {
     include_once 'sqlQuery.php';
@@ -64,7 +64,7 @@ function DeleteScore($scoreID)
     return commonQuery($query);
 }
 
-/*Í¨¹ıpaperIDºÍscore²é¿´¸ÃscoreÂäÔÚÄÄÒ»¸öµÃ·ÖÇø¼äÖĞ£¬¸Ãº¯ÊıµÄ·µ»ØÖµÎªScoreInfo*/
+/*é€šè¿‡paperIDå’ŒscoreæŸ¥çœ‹è¯¥scoreè½åœ¨å“ªä¸€ä¸ªå¾—åˆ†åŒºé—´ä¸­ï¼Œè¯¥å‡½æ•°çš„è¿”å›å€¼ä¸ºScoreInfo*/
 function FindScoreInfoByPaperScore($paperID, $score)
 {
     include_once 'sqlQuery.php';
@@ -73,7 +73,7 @@ function FindScoreInfoByPaperScore($paperID, $score)
     return selectQuery($query);
 }
 
-/*Í¨¹ıpaperIDÉ¾³ıÕû¸öÊÔ¾íµÄ¼ÇÂ¼*/
+/*é€šè¿‡paperIDåˆ é™¤æ•´ä¸ªè¯•å·çš„è®°å½•*/
 function DeleteScoreByPaperID($paperID)
 {
     include_once 'sqlQuery.php';

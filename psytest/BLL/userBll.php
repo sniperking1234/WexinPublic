@@ -1,5 +1,5 @@
 <?php
-//ÑéÖ¤ÓÃ»§ÊÇ·ñ´æÔÚ
+//éªŒè¯ç”¨æˆ·æ˜¯å¦å­˜åœ¨
 function IsUserExists($userID)
 {
     include_once '../DAL/userDal.php';
@@ -15,7 +15,7 @@ function IsUserExists($userID)
     }
     return false;
 }
-//µÇÂ¼ÑéÖ¤ÓÃ»§ÃûºÍÃÜÂë
+//ç™»å½•éªŒè¯ç”¨æˆ·åå’Œå¯†ç 
 function CheckUser($userID, $userPwd)
 {
     include_once '../DAL/userDal.php';
@@ -26,7 +26,7 @@ function CheckUser($userID, $userPwd)
     }
     return false;
 }
-//ÓÃ»§×¢²á
+//ç”¨æˆ·æ³¨å†Œ
 function Insert($userId, $userPwd, $account, $userName, $idNum, $authority)
 {
     include_once '../DAL/userDal.php';
@@ -37,7 +37,7 @@ function Insert($userId, $userPwd, $account, $userName, $idNum, $authority)
     }
     return false;
 }
-//ÐÞ¸ÄÓÃ»§Ãû
+//ä¿®æ”¹ç”¨æˆ·å
 function ModifyUserName($userID, $userName)
 {
     include_once '../DAL/userDal.php';
@@ -53,7 +53,7 @@ function ModifyUserName($userID, $userName)
     }
     return false;
 }
-//ÊµÃûÈÏÖ¤²¢ÐÞ¸ÄÈ¨ÏÞ
+//å®žåè®¤è¯å¹¶ä¿®æ”¹æƒé™
 function Identify($userID, $idNum, $authority)
 {
     include_once '../DAL/userDal.php';
@@ -67,7 +67,7 @@ function Identify($userID, $idNum, $authority)
     }
     return false;
 }
-//°´ÕËºÅ²éÕÒÓÃ»§
+//æŒ‰è´¦å·æŸ¥æ‰¾ç”¨æˆ·
 function FindbyUserId($userID)
 {
     include_once '../DAL/userDal.php';
@@ -78,7 +78,7 @@ function FindbyUserId($userID)
 
     return $userlist;
 }
-//°´ÓÃ»§Ãû²éÕÒÓÃ»§
+//æŒ‰ç”¨æˆ·åæŸ¥æ‰¾ç”¨æˆ·
 function FindbyUserName($userName)
 {
     include_once '../DAL/userDal.php';
@@ -89,7 +89,7 @@ function FindbyUserName($userName)
 
     return $userlist;
 }
-//°´ÕËºÅÉ¾³ýÓÃ»§
+//æŒ‰è´¦å·åˆ é™¤ç”¨æˆ·
 function DeletebyUid($userID)
 {
     include_once '../DAL/userDal.php';

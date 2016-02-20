@@ -2,31 +2,31 @@
 
 /*
  * @Tien
- * ²Ù×÷question±í£¬ÆäÖĞ°üº¬ÒÔÏÂ·½·¨
- * FindQuestionByQuestionID($questionID)   Í¨¹ıquestionID£¨Ö÷¼ü£©ÕÒµ½ÏàÓ¦ÎÊÌâ
- * FindQuestionByQuestionNum($paperID,$questionNum)    Í¨¹ıÎÊÌâ±àºÅquestionNumÕÒµ½ÏàÓ¦ÎÊÌâ
- * FindQuestionByPaperID($paperID)         Í¨¹ıÊÔ¾íIDÀ´ÕÒµÄ¸ÃÊÔ¾íµÄËùÓĞÎÊÌâ
- * FindQuestionByQuestionType($questionType)    Í¨¹ıÎÊÌâÀàĞÍÀ´²éÕÒ¸ÃÀàĞÍµÄËùÓĞÎÊÌâ
- * InsertQuestion($paperID,$questionNum, $questionInfo, $questionType, $questionSelect, $questionScore) Ïòquestion±í²åÈëÒ»ÌõÊı¾İ
- * DeleteQuestion($questionID) Í¨¹ıquestionID£¨Ö÷¼ü£©É¾³ıÒ»ÌõĞÅÏ¢
- * UpdateQuestionNum($questionID,$questionNum)      ¸üĞÂquestionNum
- * UpdateQuestion($questionID, $questionNum, $questionInfo, $questionType ,$questionSelect, $questionScore) Í¨¹ıquestionID£¨Ö÷¼ü£©¸üĞÂÒ»Ìõ¼ÇÂ¼
+ * æ“ä½œquestionè¡¨ï¼Œå…¶ä¸­åŒ…å«ä»¥ä¸‹æ–¹æ³•
+ * FindQuestionByQuestionID($questionID)   é€šè¿‡questionIDï¼ˆä¸»é”®ï¼‰æ‰¾åˆ°ç›¸åº”é—®é¢˜
+ * FindQuestionByQuestionNum($paperID,$questionNum)    é€šè¿‡é—®é¢˜ç¼–å·questionNumæ‰¾åˆ°ç›¸åº”é—®é¢˜
+ * FindQuestionByPaperID($paperID)         é€šè¿‡è¯•å·IDæ¥æ‰¾çš„è¯¥è¯•å·çš„æ‰€æœ‰é—®é¢˜
+ * FindQuestionByQuestionType($questionType)    é€šè¿‡é—®é¢˜ç±»å‹æ¥æŸ¥æ‰¾è¯¥ç±»å‹çš„æ‰€æœ‰é—®é¢˜
+ * InsertQuestion($paperID,$questionNum, $questionInfo, $questionType, $questionSelect, $questionScore) å‘questionè¡¨æ’å…¥ä¸€æ¡æ•°æ®
+ * DeleteQuestion($questionID) é€šè¿‡questionIDï¼ˆä¸»é”®ï¼‰åˆ é™¤ä¸€æ¡ä¿¡æ¯
+ * UpdateQuestionNum($questionID,$questionNum)      æ›´æ–°questionNum
+ * UpdateQuestion($questionID, $questionNum, $questionInfo, $questionType ,$questionSelect, $questionScore) é€šè¿‡questionIDï¼ˆä¸»é”®ï¼‰æ›´æ–°ä¸€æ¡è®°å½•
  */
 
 
-/*Í¨¹ıQuestionID£¨Ö÷¼ü£©ÕÒµ½ÏàÓ¦ÎÊÌâ*/
+/*é€šè¿‡QuestionIDï¼ˆä¸»é”®ï¼‰æ‰¾åˆ°ç›¸åº”é—®é¢˜*/
 function FindQuestionByQuestionID($questionID)
 {
-    //°üº¬Êı¾İ¿â²Ù×÷ÎÄ¼ş
+    //åŒ…å«æ•°æ®åº“æ“ä½œæ–‡ä»¶
     include_once 'sqlQuery.php';
-    //Éú³ÉsqlÓï¾ä
+    //ç”Ÿæˆsqlè¯­å¥
     $query = "select * from question
     where QuestionID = $questionID";
-    //·µ»Ø½á¹û
+    //è¿”å›ç»“æœ
     return selectQuery($query);
 }
 
-/* Í¨¹ıÎÊÌâ±àºÅquestionNumÕÒµ½ÏàÓ¦ÎÊÌâ*/
+/* é€šè¿‡é—®é¢˜ç¼–å·questionNumæ‰¾åˆ°ç›¸åº”é—®é¢˜*/
 function FindQuestionByQuestionNum($paperID,$questionNum)
 {
     include_once 'sqlQuery.php';
@@ -35,7 +35,7 @@ function FindQuestionByQuestionNum($paperID,$questionNum)
     return selectQuery($query);
 }
 
-/* Í¨¹ıpaperIDÕÒ³ö¸ÃÊÔ¾íµÄËùÓĞÎÊÌâ*/
+/* é€šè¿‡paperIDæ‰¾å‡ºè¯¥è¯•å·çš„æ‰€æœ‰é—®é¢˜*/
 function FindQuestionByPaperID($paperID)
 {
     include_once 'sqlQuery.php';
@@ -44,7 +44,7 @@ function FindQuestionByPaperID($paperID)
     return selectQuery($query);
 }
 
-/*Í¨¹ıÎÊÌâÀàĞÍÀ´²éÕÒ¸ÃÀàĞÍµÄËùÓĞÎÊÌâ*/
+/*é€šè¿‡é—®é¢˜ç±»å‹æ¥æŸ¥æ‰¾è¯¥ç±»å‹çš„æ‰€æœ‰é—®é¢˜*/
 function  FindQuestionByQuestionType($questionType)
 {
     include_once 'sqlQuery.php';
@@ -53,7 +53,7 @@ function  FindQuestionByQuestionType($questionType)
     return selectQuery($query);
 }
 
-/*Ïòquestion±í²åÈëÒ»ÌõÊı¾İ*/
+/*å‘questionè¡¨æ’å…¥ä¸€æ¡æ•°æ®*/
 function  InsertQuestion($paperID,$questionNum, $questionInfo, $questionType, $questionSelect, $questionScore)
 {
     include_once 'sqlQuery.php';
@@ -62,7 +62,7 @@ function  InsertQuestion($paperID,$questionNum, $questionInfo, $questionType, $q
     return commonQuery($query);
 }
 
-/*Í¨¹ıquestionID£¨Ö÷¼ü£©É¾³ıÒ»ÌõĞÅÏ¢*/
+/*é€šè¿‡questionIDï¼ˆä¸»é”®ï¼‰åˆ é™¤ä¸€æ¡ä¿¡æ¯*/
 function   DeleteQuestion($questionID) 
 {
     include_once 'sqlQuery.php';
@@ -71,7 +71,7 @@ function   DeleteQuestion($questionID)
     return commonQuery($query);
 }
 
-/* Í¨¹ıquestionID£¨Ö÷¼ü£©¸üĞÂÒ»Ìõ¼ÇÂ¼*/
+/* é€šè¿‡questionIDï¼ˆä¸»é”®ï¼‰æ›´æ–°ä¸€æ¡è®°å½•*/
 function  UpdateQuestion($paperID,$questionID, $questionNum, $questionInfo, $questionType ,$questionSelect, $questionScore)
 {
     include_once 'sqlQuery.php';
