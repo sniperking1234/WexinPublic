@@ -21,7 +21,7 @@
     //循环把选择结果读取出来
     for($x=0;$x<$count;$x++)
     {
-        $select[$x] = $_GET[$x];//注意下标
+        $select[$x] = $_GET[$x];
         $questionID = FindQuetionID($paperID,$x+1);
         SaveSelectResult($userID, $paperID, $questionID, $_GET[$x], 0);//先填充0
     }
