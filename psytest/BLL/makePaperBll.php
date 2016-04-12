@@ -20,9 +20,8 @@
  * DeleteQuestionNormal($paperName, $questionNum)直接删除题目
  * function DeleteQuestionForce($paperName, $questionNum)强制删除题目,要注意外键依赖关系（先将依赖于这个Question的数据删除，然后再删除Question）
  * UpdateQuestionNumMinus($paperName, $questionNum)修改编号(questionNum),在删除一题之后，所有大于这个题的编号减一
- * UpdateQuestionNumAdd($paperName, $questionNum)修改编号(questionNum),在删除一题之后，所有大于这个题的编号加一
  * UpdateQuestionInfo($paperName, $questionNum, $questionInfo, $questionType ,$questionSelect, $questionScore)修改题目
- */     
+ */       
 
 
 
@@ -35,29 +34,26 @@ function UpdateQuestionInfo($paperName, $questionNum, $questionInfo, $questionTy
     return 1;
 }
 
-//修改编号(questionNum),在删除一题之后，所有大于这个题的编号加一
-function UpdateQuestionNumAdd($paperName, $questionNum)
-{
-    DeleteQuestionNormal($paperName, $qNum);
-    if($questionNum < qNum)
-    {
-        $questionNum ++;
-    }
-    return 1;
-}
-
-
 //修改编号(questionNum),在删除一题之后，所有大于这个题的编号减一
 function  UpdateQuestionNumMinus($paperName, $questionNum)
 {
-    DeleteQuestionNormal($paperName, $qNum);
-    if($questionNum > qNum)
+    include_once '../DAl/questionDal.php';
+    DeleteQuestionNormal($paperName, $questionNum);
+    $paperID = GetPaperID($paperName);
+    $result = FindQuestionByPaperID($paperID);
+    foreach ($result as $single)
     {
-        $questionNum --;
-    }
-    return 1;
-} 
+        $questionID = $single[0];
+        $qNumber = $single[2];
+        if($qNumber >= $questionNum)
+        {
+            $qNumber --;
+            UpdateQuestionNum($questionID, $qNumber);
+        }
 
+        return 1;
+    }
+}
 
 
 //强制删除题目,要注意外键依赖关系（先将依赖于这个Question的数据删除，然后再删除Question）
@@ -65,7 +61,8 @@ function DeleteQuestionForce($paperName, $questionNum)
 {
     include_once '../DAl/selectResultDal.php';
     include_once '../DAL/questionDal.php';
-    $selectResult = FindSelectResultByPaperID($paperID)  ;
+    $paperID = GetPaperID($paperName);
+    $selectResult = FindSelectResultByPaperID($paperID);
     foreach ($selectResult as $single)
     {
         $selectResultID = $single[0];
@@ -103,7 +100,7 @@ function IsQuestionDependency($paperName, $questionNum)
     $number1 = count($result);
     $number2 = count($result2);
     
-    if($number1 == 1 || $number2 ==1)
+    if($number1 > 0 || $number2 > 0)
     {
         return 1;
     }
@@ -246,7 +243,7 @@ function IsPaperDependency($paperName)
     $paperID = GetPaperID($paperName);
     $result = FindQuestionByPaperID($paperID);
     $number = count($result);
-    if($number == 1)
+    if($number > 0)
     {
         return 1;
     }
@@ -262,9 +259,8 @@ function AddNewPaper($paperName, $paperInfo, $paperType, $isPaperScore, $imagePa
         {
             return  1;
         }
-        return  0;
     }
-
+    return  0;
 }
 //判断试卷名是否重复
 function IsSamePaper($paperName)
@@ -284,7 +280,7 @@ function IsSamePaper($paperName)
 function GetAllPaperName()
 {
     include_once 'paperDal.php';
-    $paperName = FindALLPaperName();
+    $paperName = FindALLPaper();
     return $paperName;
 }
 

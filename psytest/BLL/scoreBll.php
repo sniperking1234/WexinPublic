@@ -15,6 +15,7 @@ function UpdateScoreInfo( $paperName, $LScore, $HScore, $newLScore, $newHScore, 
 {
     include_once 'makePaperBll.php';
     $paperID = GetPaperID($paperName);
+    $scoreID = GetScoreID($paperName, $LScore, $HScore);
     if(IsScoreConflict($paperName, $LScore, $HScore) ==1)
     {
         $scoreInfo = $newScoreInfo;
