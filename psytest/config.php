@@ -1,8 +1,8 @@
 <?php
 
-    $mysql_server_name="localhost:3306"; //Êý¾Ý¿â·þÎñÆ÷Ãû³Æ
-    $mysql_username="root"; // Á¬½ÓÊý¾Ý¿âÓÃ»§Ãû
-    $mysql_password="123456"; // Á¬½ÓÊý¾Ý¿âÃÜÂë
-    $mysql_database="psytest";   // Êý¾Ý¿âµÄÃû×Ö33333333333
-    $debug = 1; 
+    $mysql_server_name="localhost:3306"; //ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    $mysql_username="root"; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
+    $mysql_password="123456"; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
+    $mysql_database="psytest";   // ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½33333333333
+    $debug = 0; 
 ?>
