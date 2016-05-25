@@ -91,6 +91,7 @@
         <p>
           <?php
             include_once '../BLL/makePaperListBll.php';
+            $flag = $_GET['flag'];
             $type = $_GET['type'];
             $paperList = NULL;
             if($type)
@@ -106,8 +107,15 @@
                 $paperID = $paper[0];
                 $paperName = $paper[1];
                 $paperInfo = $paper[2];
-                $paperType = $paper[3];      
-                echo "<button type=\"button\" class=\"btn btn-default btn-lg btn-block\" onclick=\"javascript:window.location.href='showPaperQuestion.php?paperName=$paperName';\">$paperName</button>";
+                $paperType = $paper[3];  
+                if ($flag) {
+                    ;
+                }
+                else{
+                    echo "<button type=\"button\" class=\"btn btn-default btn-lg btn-block\" onclick=\"javascript:window.location.href='showPaperQuestion.php?paperName=$paperName';\">$paperName</button>";
+                }
+                
+                
             }
         ?>
         </p>

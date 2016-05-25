@@ -5,9 +5,11 @@
  *function FindTestResultByTestResultID($testResultID)                           通过testResultID找到相应的TestResult
  *function FindTestResultByUserID($userID)                                       通过userID找到相应的TestResult
  *function FindTestResultByPaperID($paperID)                                     通过paperID找到相应的TestResult
+ *function FindTestResultByUserPaper($userID,$paperID)
  *function InsertTestResult($userID,$paperID,$testScore,$testInfo)               增加一个TestResult
  *function UpdateTestResult($testResultID,$userID,$paperID,$testScore,$testInfo) 更新一个TestResult
  *function DeleteTestResult($testResultID)                                       通过testResultID删除相应的TestResult
+* function AddTestInfo($userID,$paperID,$testInfo)
 */
 function FindTestResultByTestResultID($testResultID)
 {
@@ -41,7 +43,16 @@ function FindTestResultByPaperID($paperID)
     //返回结果
     return selectQuery($query);
 }
-
+function FindTestResultByUserPaper($userID,$paperID)
+{
+    //包含数据库操作文件
+    include_once 'sqlQuery.php';
+    //生成sql语句
+    $query = "select * from testresult
+    where UserID = $userID and  PaperID = $paperID" ;
+    //返回结果
+    return selectQuery($query);  
+}
 function InsertTestResult($userID,$paperID,$testScore,$testInfo)
 {
     //包含数据库操作文件
@@ -64,7 +75,17 @@ function UpdateTestResult($testResultID,$userID,$paperID,$testScore,$testInfo)
     //返回结果
     return commonQuery($query);
 }
-
+function AddTestInfo($userID,$paperID,$testInfo)
+{
+    //包含数据库操作文件
+    include_once 'sqlQuery.php';
+    //生成sql语句
+    $query = "update testresult
+    set  TestInfo ='$testInfo'
+    where UserID = $userID and PaperID = $paperID";
+    //返回结果
+    return commonQuery($query);
+}
 function DeleteTestResult($testResultID)
 {
     //包含数据库操作文件

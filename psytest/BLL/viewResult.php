@@ -40,6 +40,12 @@ function FindResultByUserID($userID) {
     return SelectQuery($query);
 }
  * */
+function FindQuestionNumInPaperByQuestionID($questionID) {
+    include_once 'sqlQuery.php';
+    $query = "select QuestionNum from question
+    where QuestionID = $questionID";
+    return SelectQuery($query);
+}
  
 function GetProportionByUserIDPaperID($userID,$paperID)
 {

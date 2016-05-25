@@ -8,11 +8,11 @@
 
     <title>心理测评系统后台</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap-social.css" rel="stylesheet">
-    <link href="css/mystyles.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-social.css" rel="stylesheet">
+    <link href="../css/mystyles.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -93,7 +93,7 @@
         <div class="row row-content">
            <div class="col-xs-12 col-sm-9">
               <h3>请输入用户ID</h3>
-              <form class="form-horizontal" role="form" action="<?php echo BB自己;?>" method="post">
+              <form class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                     <fieldset>
                         <legend>请输入：</legend>
                        <div class="form-group">
@@ -136,9 +136,9 @@
                             if(!$res_item){
                                 $res_item = array("无","无","无", "无", "无");
                             }
-                            for($j=0; $j<count($res_item); $i++)
+                            for($j=0; $j<count($res_item); $j++)
                             {
-                                echo "<td>" . $res[$j] . "</td>";
+                                echo "<td>" . $res[$j][0] . "</td>";
                             }
                             echo "</tr>";
                         }
