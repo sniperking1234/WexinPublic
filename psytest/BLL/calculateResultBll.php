@@ -7,6 +7,17 @@
  */
 
 /*把选择结果存入saveSelectResult*/ 
+
+function IsResultExist($userID, $paperID)
+{
+    include_once '../DAL/selectResultDal.php';
+    $result = FindSelectResultByUserPaper($userID, $paperID);
+    if (count($result) > 0) {
+        return  1;
+    }
+    return 0;
+}
+
 function SaveSelectResult($userID, $paperID, $questionID, $selectInfo, $selectScore)
 {
     include_once '../DAL/selectResultDal.php';

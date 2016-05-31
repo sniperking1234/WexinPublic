@@ -19,13 +19,21 @@
     $count = count($result);
     $select = array();
     //循环把选择结果读取出来
-    for($x=0;$x<$count;$x++)
-    {
-        $select[$x] = $_GET[$x];
-        $questionID = FindQuetionID($paperID,$x+1);
-        SaveSelectResult($userID, $paperID, $questionID, $_GET[$x], 0);//先填充0
+    if (IsResultExist($userID, $paperID)) {
+
     }
-    CalculateScore($userID, $paperID);
+    else {
+        for($x=0;$x<$count;$x++)
+        {
+            $select[$x] = $_GET[$x];
+            $questionID = FindQuetionID($paperID,$x+1);
+            SaveSelectResult($userID, $paperID, $questionID, $_GET[$x], 0);//先填充0
+        }
+        CalculateScore($userID, $paperID);
+    }
+    
+    $uil = "Location: ../UIL/showResult.php?paperID=$paperID";
+    header($uil);
 ?>
 
 

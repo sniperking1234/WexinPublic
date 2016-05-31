@@ -2,7 +2,6 @@
 session_start();
 // store session data
 $_SESSION['paperName'] = $_GET["paperName"];
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,7 +62,8 @@ $_SESSION['paperName'] = $_GET["paperName"];
                                     'F'
                                 );
                                 $paperName = $_GET["paperName"];
-                                ;
+                                echo "<script> var paperName =\"$paperName\";</script>";
+                                
                                 $result = FindPaperQuestion($paperName);
                                 $qn = 0;
                                 // 循环读取所有试题
@@ -122,7 +122,6 @@ $_SESSION['paperName'] = $_GET["paperName"];
 				}
 			
 			var x;
-			var paperName = GetQueryString("paperName");
 			var url = "../Action/writeQuestionAction.php?";
             var question_key =  new Object();
             var answer_index = -1;

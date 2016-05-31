@@ -4,5 +4,5 @@
     $mysql_username="root"; // �������ݿ��û���
     $mysql_password="123456"; // �������ݿ�����
     $mysql_database="psytest";   // ���ݿ������33333333333
-    $debug = 0; 
+    $debug = 1; 
 ?>
