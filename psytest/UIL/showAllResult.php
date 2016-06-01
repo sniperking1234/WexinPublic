@@ -33,17 +33,21 @@
     		include_once '../DAL/testResultDal.php';
     		include_once '../DAL/paperDal.php';
     		$userId = $_SESSION['userID'];
-    		$paperId = $_GET['paperID'];
-    		$result = FindTestResultByUserPaper($userId,$paperId);
-    		$score = $result[0][3];
-    		$info = $result[0][4];
+    		$result = FindTestResultByUserID($userId);
+    		for($i=0; $i<count($result); $i++){
+    		    $paperId = $result[$i][2];
+    		    $paperName = FindPaperByPaperID($paperId)[0][1];
+    		    $score = $result[$i][3];
+    		    $info = $result[$i][4];
+    		    echo "<h2>试卷名： $paperName</h2>";
+    		    echo "<h2>分数是 $score</h2>";
+    		    echo "<h2>测试结果为：</h2>";
+    		    echo "<h3>$info</h3>";
+    		    echo "</br>";
+    		};
     		?>
-    		<h2>分数是 <?php echo $score;?></h2>
-    		<h2>测试结果为：</h2>
-    		<h3><?php echo $info;?></h3>
     	</div>
     	<a class="btn btn-default" href="showPaperName.php" role="button">进入试题选择</a>
-    	<a class="btn btn-default" href="showAllResult.php" role="button">查看所有结果</a>
 	</div>
 	</body>
 </html>
