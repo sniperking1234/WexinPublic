@@ -24,10 +24,6 @@
           <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         
-        <?php 
-        session_start();
-        $_SESSION['userID']=1; 
-        ?>
 	</head>
 	
 	<body>
@@ -55,6 +51,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               	<?php 
               	 include_once '../BLL/userBll.php';
+              	 session_start();
               	 $userID = $_SESSION['userID'];
               	 $userList = FindbyUserId($userID);
               	 echo $userList[0][1];
@@ -62,7 +59,7 @@
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">个人资料</a></li>
-                <li><a href="#">测试结果</a></li>
+                <li><a href="showAllResult.php">测试结果</a></li>
               </ul>
             </li>
           </ul>
