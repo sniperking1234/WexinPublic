@@ -5,11 +5,11 @@
 
     session_start();
 
-    include_once '../Bll/creatPaperBll.php';
-    include_once '../Bll/commonFunction.php';
+    include_once '../BLL/creatPaperBll.php';
+    include_once '../BLL/commonFunction.php';
     include_once '../BLL/getQuestionBll.php';
-    include_once '../BLl/calculateResultBll.php';
-    include_once '../Bll/makePaperBll.php';
+    include_once '../BLL/calculateResultBll.php';
+    include_once '../BLL/makePaperBll.php';
     $userID = $_SESSION['userID'];
     $paperName = $_GET['paperName'];
     //释放paperName的session

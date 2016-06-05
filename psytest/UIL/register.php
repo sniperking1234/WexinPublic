@@ -12,7 +12,7 @@
 <head>
 <title>心理测评系统</title>
 <!-- Custom Theme files -->
-<link href="../css/style1.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="../CSS/style1.css" rel="stylesheet" type="text/css" media="all"/>
 <!-- Custom Theme files -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

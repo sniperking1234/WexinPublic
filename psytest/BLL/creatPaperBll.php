@@ -9,7 +9,7 @@
 /*通过paperName找到并返回试卷信息介绍*/
 function FindPaperInfo($paperName)
 {
-    include_once '../DAl/paperDal.php';
+    include_once '../DAL/paperDal.php';
     $paperInfo = FindPaperByPaperName($paperName);
     return $paperInfo;
 }
@@ -17,8 +17,8 @@ function FindPaperInfo($paperName)
 /*通过paperName找到并返回试题信息*/
 function FindPaperQuestion($paperName)
 {
-    include_once '../DAl/paperDal.php';
-    include_once '../DAl/questionDal.php';
+    include_once '../DAL/paperDal.php';
+    include_once '../DAL/questionDal.php';
     $paperID = 0;
     $paperInfo = FindPaperByPaperName($paperName);
     foreach ($paperInfo as $single)

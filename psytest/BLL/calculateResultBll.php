@@ -30,7 +30,7 @@ function SaveSelectResult($userID, $paperID, $questionID, $selectInfo, $selectSc
 function CalculateScore($userID, $paperID)
 {
     include_once '../DAL/selectResultDal.php';
-    include_once '../Dal/questionDal.php';
+    include_once '../DAL/questionDal.php';
     $userSelection = FindSelectResultByUserPaper($userID, $paperID);
     CalculSingleScore($userSelection);
     CalculTestScore($userID, $paperID);

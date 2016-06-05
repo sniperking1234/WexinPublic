@@ -51,8 +51,8 @@ $_SESSION['paperName'] = $_GET["paperName"];
 							<!-- 投票文字 -->
 							<ol class="Quiz_list">
 							 <?php
-                                include_once '../Bll/creatPaperBll.php';
-                                include_once '../Bll/commonFunction.php';
+                                include_once '../BLL/creatPaperBll.php';
+                                include_once '../BLL/commonFunction.php';
                                 $abcd = array(
                                     'A',
                                     'B',

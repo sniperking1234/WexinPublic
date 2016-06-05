@@ -59,7 +59,7 @@ function  UpdateQuestionNumMinus($paperName, $questionNum)
 //强制删除题目,要注意外键依赖关系（先将依赖于这个Question的数据删除，然后再删除Question）
 function DeleteQuestionForce($paperName, $questionNum)
 {
-    include_once '../DAl/selectResultDal.php';
+    include_once '../DAL/selectResultDal.php';
     include_once '../DAL/questionDal.php';
     $paperID = GetPaperID($paperName);
     $selectResult = FindSelectResultByPaperID($paperID);
@@ -92,7 +92,7 @@ function DeleteQuestionNormal($paperName, $questionNum)
 //查询是否有依赖于该题目的记录（外键）
 function IsQuestionDependency($paperName, $questionNum)
 {
-    include_once '../DAl/selectResultDal.php';
+    include_once '../DAL/selectResultDal.php';
     include_once '../DAL/questionDal.php';
     $questionID = GetQuestionID($paperName, $questionNum);
     $result = FindQuestionByQuestionID($questionID);
@@ -111,7 +111,7 @@ function IsQuestionDependency($paperName, $questionNum)
 //根据试卷和题号找到其中题目
 function GetUniqueQuestion($paperName, $questionNum)
 {
-    include_once '../DAl/questionDal.php';
+    include_once '../DAL/questionDal.php';
     $paperID = GetPaperID($paperName);
     $uniqueQuestion = FindQuestionByQuestionNum($paperID,$questionNum);
     return $uniqueQuestion;
@@ -120,7 +120,7 @@ function GetUniqueQuestion($paperName, $questionNum)
 //插入题目
 function AddNewQuestion($paperName, $questionNum, $questionInfo, $questionType, $questionSelect, $questionScore)
 {
-    include_once '../DAl/questionDal.php';
+    include_once '../DAL/questionDal.php';
     $paperID = GetPaperID($paperName);
     if(InsertQuestion($paperID,$questionNum, $questionInfo, $questionType, $questionSelect, $questionScore))
     {
@@ -134,7 +134,7 @@ function AddNewQuestion($paperName, $questionNum, $questionInfo, $questionType, 
 //获得该试卷的所有题目
 function GetAllQuestion($paperName)
 {
-    include_once '../DAl/questionDal.php';
+    include_once '../DAL/questionDal.php';
     $paperID = GetPaperID($paperName);
     $question = FindQuestionByPaperID($paperID);
     return $question;
@@ -143,7 +143,7 @@ function GetAllQuestion($paperName)
 //通过paperName和questionNum得到题目主键（QuestionID）
 function GetQuestionID($paperName, $questionNum)
 {
-    include_once '../DAl/questionDal.php';
+    include_once '../DAL/questionDal.php';
     $paperID = GetPaperID($paperName);
     $result = FindQuestionByQuestionNum($paperID,$questionNum);
     foreach ($result as $single)
@@ -170,7 +170,7 @@ function GetPaperID($paperName)
 //插入题目到指定题号，其他大于等于该题号的题目题号加一
 function AddUniqueQuestion($paperName, $questionNum, $questionInfo, $questionType, $questionSelect, $questionScore)
 {
-    include_once '../DAl/questionDal.php';
+    include_once '../DAL/questionDal.php';
     $paperID = GetPaperID($paperName);
     $result = FindQuestionByPaperID($paperID);
     foreach ($result as $single)
@@ -192,7 +192,7 @@ function AddUniqueQuestion($paperName, $questionNum, $questionInfo, $questionTyp
 //强制删除试卷（先将依赖于这个Paper的数据删除，然后再删除Paper）
 function DeletePaperForce($paperName) 
 {
-    include_once '../DAl/selectResultDal.php';
+    include_once '../DAL/selectResultDal.php';
     include_once '../DAL/questionDal.php';
     include_once '../DAL/testResultDal.php';
     $paperID = GetPaperID($paperName);
@@ -279,7 +279,7 @@ function IsSamePaper($paperName)
 //获得所有试卷名
 function GetAllPaperName()
 {
-    include_once 'paperDal.php';
+    include_once './DAL/paperDal.php';
     $paperName = FindALLPaper();
     return $paperName;
 }
@@ -308,7 +308,7 @@ function CreatQuestionNum($paperID)
 //更新试卷信息,如果要修改试卷名，要判断是否重复
 function UpdatePaperInfo($oldPaperName,$newPaperName,$paperInfo, $paperType, $isPaperScore, $imagePath)
 {
-    include_once '../DAl/paperDal.php';
+    include_once '../DAL/paperDal.php';
     if ($oldPaperName != $newPaperName)
     {
         $paperName = $newPaperName;

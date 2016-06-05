@@ -7,7 +7,7 @@
 
 function FindQuetionID($paperID, $questionNum)
 {
-    include_once '../Dal/questionDal.php';
+    include_once '../DAL/questionDal.php';
     $result = FindQuestionByQuestionNum($paperID, $questionNum);
     return $result[0][0];
 }
