@@ -22,9 +22,9 @@ if (isset($_POST["Submit"]) && $_POST["Submit"] == "修改") {
                         
                         if (ModifyPassword($user, $psw)) {
                             if ($identify == '') {
-                                echo "<script>alert('Success,go to the index!');window.location.href = '../UIL/index.php?identify=0';</script>";
+                                echo "<script>alert('Success,go to the index!');window.location.href = 'http://2.whoisyourdaddy.sinaapp.com/index.php?s=/addon/WeiSite/WeiSite/index/publicid/154.html';</script>";
                             } else
-                                echo "<script>alert('Success,go to the index!');window.location.href = '../UIL/index.php?identify=1';</script>";
+                                echo "<script>alert('Success,go to the index!');window.location.href = 'http://2.whoisyourdaddy.sinaapp.com/index.php?s=/addon/WeiSite/WeiSite/index/publicid/154.html';</script>";
                             // echo "<a href=''>返回</a>";
                         } else {
                             echo "<script>alert('System Busy'); history.go(-1);</script>";
@@ -33,9 +33,9 @@ if (isset($_POST["Submit"]) && $_POST["Submit"] == "修改") {
                         
                         if (ModifyUserName($user, $realname, $psw)) {
                             if ($identify == '') {
-                                echo "<script>alert('Success,go to the index!');window.location.href = '../UIL/index.php?identify=0';</script>";
+                                echo "<script>alert('Success,go to the index!');window.location.href = 'http://2.whoisyourdaddy.sinaapp.com/index.php?s=/addon/WeiSite/WeiSite/index/publicid/154.html';</script>";
                             } else
-                                echo "<script>alert('Success,go to the index!');window.location.href = '../UIL/index.php?identify=1';</script>";
+                                echo "<script>alert('Success,go to the index!');window.location.href = 'http://2.whoisyourdaddy.sinaapp.com/index.php?s=/addon/WeiSite/WeiSite/index/publicid/154.html';</script>";
                             // echo "<a href=''>返回</a>";
                         } else {
                             echo "<script>alert('System Busy'); history.go(-1);</script>";
@@ -63,9 +63,9 @@ if (isset($_POST["Submit"]) && $_POST["Submit"] == "修改") {
                             $result = FindbyUserId($realname);
                             $identify = $result[0][4];
                             if ($identify == '') {
-                                echo "<script>alert('Success,go to the index!');window.location.href = '../UIL/index.php?identify=0';</script>";
+                                echo "<script>alert('Success,go to the index!');window.location.href = 'http://2.whoisyourdaddy.sinaapp.com/index.php?s=/addon/WeiSite/WeiSite/index/publicid/154.html';</script>";
                             } else
-                                echo "<script>alert('Success,go to the index!');window.location.href = '../UIL/index.php?identify=1';</script>";
+                                echo "<script>alert('Success,go to the index!');window.location.href = 'http://2.whoisyourdaddy.sinaapp.com/index.php?s=/addon/WeiSite/WeiSite/index/publicid/154.html';</script>";
                             // echo "<a href=''>返回</a>";
                         } else {
                             echo "<script>alert('System Busy'); history.go(-1);</script>";

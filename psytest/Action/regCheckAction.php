@@ -30,7 +30,7 @@
                     {  
                         session_start();
                         $_SESSION["user"]=$user;
-                        echo "<script>window.location.href = '../UIL/index.php?identify=0';</script>"; 
+                        echo "<script>window.location.href = 'http://2.whoisyourdaddy.sinaapp.com/index.php?s=/addon/WeiSite/WeiSite/index/publicid/154.html';</script>"; 
                        // echo "<a href=''>返回</a>";
                     }  
                     else  

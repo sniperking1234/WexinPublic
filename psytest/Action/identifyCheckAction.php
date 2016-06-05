@@ -19,7 +19,7 @@
                     {  
                        // session_start();
                        // $_SESSION["user"]=$user;
-                        echo "<script>alert('Success,go to the index!');window.location.href = '../UIL/index.php?identify=1';</script>"; 
+                        echo "<script>alert('Success,go to the index!');window.location.href = 'http://2.whoisyourdaddy.sinaapp.com/index.php?s=/addon/WeiSite/WeiSite/index/publicid/154.html';</script>"; 
                        // echo "<a href=''>返回</a>";
                     }  
                     else  

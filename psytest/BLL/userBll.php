@@ -19,7 +19,11 @@ function IsUserExists($userID)
 function CheckUser($userID, $userPwd)
 {
     include_once '../DAL/userDal.php';
-    $result = findUsersByNamePwd($userID, $userPwd);
+   
+        $userlist = findUsersByNamePwd($userID, $userPwd);
+   
+    
+    $result = count($userlist);
     if($result > 0)
     {
         return true;
@@ -27,26 +31,42 @@ function CheckUser($userID, $userPwd)
     return false;
 }
 //用户注册
-function Insert($userId, $userPwd, $account, $userName, $idNum, $authority)
+function Insert($userPwd, $account, $userName, $idNum, $authority)
 {
     include_once '../DAL/userDal.php';
-    $result = InsertUser($userId, $userPwd, $account, $userName, $idNum, $authority);
+    $result = InsertUser($userPwd, $account, $userName, $idNum, $authority);
     if($result > 0)
     {
         return true;
     }
     return false;
 }
-//修改用户名
-function ModifyUserName($userID, $userName)
+//修改密码
+function ModifyPassword($userID, $password)
 {
     include_once '../DAL/userDal.php';
     if(isset($userID) && !$userID=='')
     {
-        $result = UpdateUserName($userID, $userName);
+        $result = UpdatePassword($userID, $password);
     }
 
   //  $= count($userlist);
+    if($result > 0)
+    {
+        return true;
+    }
+    return false;
+}
+//修改用户名和密码
+function ModifyUserName($userID, $userName,$password)
+{
+    include_once '../DAL/userDal.php';
+    if(isset($userID) && !$userID=='')
+    {
+        $result = UpdateUserName($userID, $userName,$password);
+    }
+
+    //  $= count($userlist);
     if($result > 0)
     {
         return true;
